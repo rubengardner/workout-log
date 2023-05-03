@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import styles from './App.module.css';
 import NavBar from './components/NavBar';
-
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
