@@ -1,23 +1,24 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from '../../styles/SignUpForm.module.css'
+import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
-const SignUpForm = () => {
-  const [signUpData, setSignUpData] = useState({
+function SignInForm() {
+  const setCurrentUser = useSetCurrentUser();
+  const [logInData, setLogIn] = useState({
     username: '',
-    password1: '',
-    password2: ''
+    password: '',
   })
 
-  const {username, password1, password2} = signUpData;
+  const {username, password} = logInData;
   const [errors, setErrors] = useState ({})
   const history = useHistory();
 
   const handleChange = (event) => {
-    setSignUpData({
-      ...signUpData,
+    setLogIn({
+      ...logInData,
       [event.target.name]: event.target.value,
     })
   }
@@ -25,8 +26,9 @@ const SignUpForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post("/dj-rest-auth/registration/", signUpData);
-      history.push("/signin");
+      const { data } = await axios.post("/dj-rest-auth/login/", logInData);
+      setCurrentUser(data.user);
+      history.push("/");
     } catch (err) {
       setErrors(err.response?.data);
     }
@@ -39,7 +41,7 @@ const SignUpForm = () => {
         <Row>
           <Col>
           
-            <h2 className='text-center mt-3'>Sign up</h2>
+            <h2 className='text-center mt-3'>Log in</h2>
             <Form onSubmit={handleSubmit} className="mt-5">
               <Form.Group controlId="username">
                 <Form.Label className='d-none'>Username</Form.Label>
@@ -50,27 +52,17 @@ const SignUpForm = () => {
                 {message}
               </Alert>
               ))}
-              <Form.Group controlId="password1">
+              <Form.Group controlId="password">
                 <Form.Label className='d-none'>Password</Form.Label>
-                <Form.Control className="mt-4" type="password" placeholder="Password" name='password1' value={password1} onChange={handleChange}/>
+                <Form.Control className="mt-4" type="password" placeholder="Password" name='password' value={password} onChange={handleChange}/>
               </Form.Group>
-              {errors.password1?.map((message, idx) => (
+              {errors.password?.map((message, idx) => (
               <Alert variant="warning" key={idx}>
                 {message}
               </Alert>
             ))}
-              <Form.Group controlId="password2" >
-                <Form.Label className='d-none'>Password</Form.Label>
-                <Form.Control className="mt-4" type="password" placeholder="Confirm Password" name='password2' value={password2} onChange={handleChange}/>
-              </Form.Group>
-              {errors.password2?.map((message, idx) => (
-              <Alert variant="warning" key={idx}>
-                {message}
-              </Alert>
-            ))}
-              
               <Button variant="dark" type="submit" className="mt-3">
-                Sign up 
+                Log in
               </Button>
               {errors.non_field_errors?.map((message, idx) => (
               <Alert key={idx} variant="warning" className='mt-3'>
@@ -84,7 +76,7 @@ const SignUpForm = () => {
           <Col>
           <Container className='mt-4' >
               <div>
-                Already have an account? <Link to="/login">Log in</Link>
+                Don't have an account? <Link to="/signup">Sign up</Link>
               </div>
             </Container>
           </Col>
@@ -95,4 +87,4 @@ const SignUpForm = () => {
   )
 }
 
-export default SignUpForm
+export default SignInForm;
