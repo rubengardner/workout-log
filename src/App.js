@@ -7,6 +7,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import './api/axiosDefaults'
 import SignInForm from './pages/auth/SignInForm';
 import {createContext} from 'react';
+import ExerciseCreateForm from './pages/exercises/ExerciseCreateForm';
 
 
 export const CurrentUserContext = createContext();
@@ -23,6 +24,8 @@ function App() {
               <Route exact path='/' render ={() => <h1>Main page</h1>} />
               <Route exact path='/login' render ={() => <SignInForm />} />
               <Route exact path='/signup' render ={() => <SignUpForm />} />
+              <Route exact path='/exercises/create' render ={() => <ExerciseCreateForm />} />
+              
               <Route render={()=><p>Page not found.</p>} />
             </Switch>
           </Container>

@@ -7,7 +7,7 @@ import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
-  const [logInData, setLogIn] = useState({
+  const [logInData, setLogInData] = useState({
     username: '',
     password: '',
   })
@@ -17,7 +17,7 @@ function SignInForm() {
   const history = useHistory();
 
   const handleChange = (event) => {
-    setLogIn({
+    setLogInData({
       ...logInData,
       [event.target.name]: event.target.value,
     })
