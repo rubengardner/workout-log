@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import axios from "axios";
 import styles from '../../styles/SignUpForm.module.css'
 
@@ -32,7 +32,7 @@ const ExerciseCreateForm = () => {
         formData.append("name", exerciseName);
         formData.append("unit1", unit1);
         formData.append("unit2", unit2);
-    
+        console.log(formData)
         try {
           const { data } = await axiosReq.post("/exercises/", formData);
           history.push(`/exercises/${data.id}`);

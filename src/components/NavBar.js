@@ -26,12 +26,11 @@ const NavBar = () => {
   </>)
 
   const logInDisplay = (<>
-    <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-    Sign out
-    </NavLink>
+    <NavLink className={styles.NavLink} to="/workouts/create">Workouts</NavLink>
+    <NavLink className={styles.NavLink} to="/exercises/create">Exercises</NavLink>
+    <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>Sign out</NavLink>
   </>)
 
-  // const { expanded, setExpanded, ref } = useClickOutsideToggle();
   return (
     <Container>
        <Navbar bg="light" expand="md"expanded={expanded} fixed='top'>
