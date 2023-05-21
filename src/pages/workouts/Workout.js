@@ -11,19 +11,14 @@ const Workout = (props) => {
   const {
     id,
     owner,
-    profile_id,
     sets_count,
     exercise_count,
-    updated_at,
-    workoutPage,
-    setWorkouts,
     date
   } = props;
-  console.log('This is a ' + props.date)
-  const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
+
   const history = useHistory();
 
+  
   const handleEdit = () => {
     history.push(`/workouts/${id}/edit`);
   };
@@ -46,8 +41,10 @@ const Workout = (props) => {
               <p>Date: {date}</p>
               <p>Sets count: {sets_count}</p>
               <p>Exercise count: {exercise_count}</p>
+
             </Col>
           </Row>
+          
    </div>
   );
 };
