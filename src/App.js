@@ -11,26 +11,28 @@ import ExerciseCreateForm from './pages/exercises/ExerciseCreateForm';
 import ExercisePage from './pages/exercises/ExercisePage';
 import WorkoutPage from './pages/workouts/WorkoutPage';
 import WorkoutCreateForm from './pages/workouts/WorkoutCreateForm';
-import WorkoutCreateForm2 from './pages/workouts/WorkoutCreateForm2';
+import { useCurrentUser } from './contexts/CurrentUserContext';
+import WorkoutsPage from './pages/workouts/WorkoutsPage';
 
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
 function App() {
-  
+  const currentUser = useCurrentUser;
+  const profile_id = currentUser?.profile_id || '';
   return (
 
         <div className={styles.App}>
           <NavBar/>
           <Container className={styles.Main}>
             <Switch>
-              <Route exact path='/' render ={() => <h1>Main page</h1>} />
+              <Route exact path='/feed' render ={() => < WorkoutsPage message="No workouts were found"/>} />
               <Route exact path='/login' render ={() => <SignInForm />} />
               <Route exact path='/signup' render ={() => <SignUpForm />} />
               <Route exact path='/exercises/create' render ={() => <ExerciseCreateForm />} />
               <Route exact path='/exercises/:id' render ={() => <ExercisePage />} />
-              <Route exact path='/workouts/create' render ={() => < WorkoutCreateForm2 />} />
+              <Route exact path='/workouts/create' render ={() => < WorkoutCreateForm />} />
               <Route exact path='/workouts/:id' render ={() => <WorkoutPage />} />
               <Route render={()=><p>Page not found.</p>} />
             </Switch>

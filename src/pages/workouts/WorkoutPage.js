@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from "react";
-
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-
+import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import Workout from "./Workout";
+import styles from '../../styles/WorkoutPage.module.css'
 
 function WorkoutPage() {
-    const{id} = useParams();
-    const [workout, setWorkout] = useState({ results: [] });
+  const { id } = useParams();
+  const [workout, setWorkout] = useState({ results: [] });
 
-    useEffect(() => {
-        const handleMount = async () => {
-          try {
-            const [{ data: workout }] = await Promise.all([
-              axiosReq.get(`/workouts/${id}`),
-            ]);
-            setWorkout({ results: [workout] });
-            console.log(workout);
-          } catch (err) {
-            console.log(err);
-          }
-        };
-        handleMount();
-    }, [id]);
+  useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const [{ data: workout }] = await Promise.all([
+          axiosReq.get(`/workouts/${id}`),
+        ]);
+        setWorkout({ results: [workout] });
+        console.log(workout);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    handleMount();
+  }, [id]);
 
   return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
-        <p>Post component</p>
-        <Container className={appStyles.Content}>
-          Comments
-        </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
-      </Col>
-    </Row>
+    <div>
+      <Container className={styles.containerForm}>
+        <Card body className={styles.cardBackground}>
+          <Row>
+            <Col>
+              <h2>Workout</h2>
+              <Workout {...workout.results[0]} setWorkouts={setWorkout} />
+              
+              
+            </Col>
+          </Row>
+        </Card>
+      </Container>
+    </div>
   );
 }
 
