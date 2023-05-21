@@ -10,11 +10,11 @@ import { axiosReq } from "../../api/axiosDefaults";
 const ExerciseCreateForm = () => {
     const [exerciseData, setExerciseData] = useState({
         exerciseName: '',
-        unit1: '',
-        unit2: '',
+        unit_1: '',
+        unit_2: '',
       })
     
-    const {exerciseName, unit1, unit2} = exerciseData;
+    const {exerciseName, unit_1, unit_2} = exerciseData;
     const [errors, setErrors] = useState ({})
     const history = useHistory();
 
@@ -24,14 +24,14 @@ const ExerciseCreateForm = () => {
           [event.target.name]: event.target.value,
         })
       }
-    
+      
       const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
     
         formData.append("name", exerciseName);
-        formData.append("unit1", unit1);
-        formData.append("unit2", unit2);
+        formData.append("unit_1", unit_1);
+        formData.append("unit_2", unit_2);
         console.log(formData)
         try {
           const { data } = await axiosReq.post("/exercises/", formData);
@@ -62,13 +62,13 @@ const ExerciseCreateForm = () => {
                     {message}
                   </Alert>
                   ))}
-                  <Form.Group controlId="unit1">
+                  <Form.Group controlId="unit_1">
                     <Form.Label className='d-none'>Unit 1</Form.Label>
                     <Form.Control
                         as="select"
                         className="mt-4"
-                        name='unit1'
-                        value={unit1}
+                        name='unit_1'
+                        value={unit_1}
                         onChange={handleChange}
                     >
                         <option value="">Select a unit</option>
@@ -78,18 +78,18 @@ const ExerciseCreateForm = () => {
                         <option value="null">None</option>
                     </Form.Control>
                     </Form.Group>
-                  {errors.unit1?.map((message, idx) => (
+                  {errors.unit_1?.map((message, idx) => (
                   <Alert variant="warning" key={idx}>
                     {message}
                   </Alert>
                 ))}
-                  <Form.Group controlId="unit2">
+                  <Form.Group controlId="unit_2">
                     <Form.Label className='d-none'>Unit 2</Form.Label>
                     <Form.Control
                         as="select"
                         className="mt-4"
-                        name='unit2'
-                        value={unit2}
+                        name='unit_2'
+                        value={unit_2}
                         onChange={handleChange}
                     >
                         <option value="">Select a unit 2</option>
@@ -99,7 +99,7 @@ const ExerciseCreateForm = () => {
                         <option value="null">None</option>
                     </Form.Control>
                     </Form.Group>
-                  {errors.unit2?.map((message, idx) => (
+                  {errors.unit_2?.map((message, idx) => (
                   <Alert variant="warning" key={idx}>
                     {message}
                   </Alert>  
