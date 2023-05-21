@@ -95,18 +95,6 @@ function SetCreateForm(props) {
           )}
         </Form.Control>
       </Form.Group>
-      <Form.Group controlId="value_of_unit_1">
-            <Form.Label className='d-none'>Value of unit 1</Form.Label>
-            <Form.Control
-                type="text"
-                className="mt-4"
-                name="value_of_unit_1"
-                value={value_of_unit_1}
-                onChange={handleChange}
-                pattern="[0-9]*" // Restrict input to only digits
-                inputMode="numeric" // Show numeric keyboard on mobile devices
-            />
-            </Form.Group>
             <Form.Group controlId="reps">
             <Form.Label className='d-none'>Reps</Form.Label>
             <Form.Control
@@ -114,6 +102,18 @@ function SetCreateForm(props) {
                 className="mt-4"
                 name="reps"
                 value={reps}
+                onChange={handleChange}
+                pattern="[0-9]*" // Restrict input to only digits
+                inputMode="numeric" // Show numeric keyboard on mobile devices
+            />
+            </Form.Group>
+            <Form.Group controlId="value_of_unit_1">
+            <Form.Label className='d-none'>Value of unit 1</Form.Label>
+            <Form.Control
+                type="text"
+                className="mt-4"
+                name="value_of_unit_1"
+                value={value_of_unit_1}
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices

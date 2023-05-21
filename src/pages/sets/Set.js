@@ -5,13 +5,16 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 const Set = (props) => {
   const {
-    profile_id,
+    exercise_name,
     owner,
-    updated_at,
-    exercise,
+    reps,
+    value_of_unit_1,
+    value_of_unit_2,
     id,
     setWorkout,
     setSets,
+    exercise_unit_1,
+    exercise_unit_2
   } = props;
 
 
@@ -40,9 +43,12 @@ const Set = (props) => {
   return (
     <div>
       <hr />
-          <p >This is the owner{owner}</p>
-          <p >Time updated at {updated_at}</p>
-          <p >This is the exercise name:{exercise}</p>
+      <p>Exercise: {exercise_name}</p>
+      <p>Reps {reps}</p>
+      <p>{value_of_unit_1} {exercise_unit_1}</p>
+      {exercise_unit_2 && (
+        <p>{value_of_unit_2} {exercise_unit_2}</p>
+      )}
     </div>
   );
 };

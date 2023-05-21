@@ -71,11 +71,10 @@ const ExerciseCreateForm = () => {
                         value={unit_1}
                         onChange={handleChange}
                     >
-                        <option value="">Select a unit</option>
+                        <option value="">Select a unit (default is kg)</option>
                         <option value="kg">kg</option>
                         <option value="m">m</option>
                         <option value="sec">sec</option>
-                        <option value="null">None</option>
                     </Form.Control>
                     </Form.Group>
                   {errors.unit_1?.map((message, idx) => (
@@ -92,11 +91,11 @@ const ExerciseCreateForm = () => {
                         value={unit_2}
                         onChange={handleChange}
                     >
-                        <option value="">Select a unit 2</option>
+                        <option value="Select">Select a unit 2</option>
                         <option value="kg">kg</option>
                         <option value="m">m</option>
                         <option value="sec">sec</option>
-                        <option value="null">None</option>
+                        <option value="">None</option>
                     </Form.Control>
                     </Form.Group>
                   {errors.unit_2?.map((message, idx) => (
