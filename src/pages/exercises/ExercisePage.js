@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-
-import appStyles from "../../App.module.css";
+import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
+import styles from '../../styles/ExercisePage.module.css'
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import Exercise from "./Exercise";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ExercisePage() {
     const{id} = useParams();
     const [exercise, setExercise] = useState({ results: [] });
+    const currentUser = useCurrentUser();
 
     useEffect(() => {
         const handleMount = async () => {
@@ -27,20 +26,23 @@ function ExercisePage() {
         handleMount();
     }, [id]);
 
-  return (
-    <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
-        <p>Post component</p>
-        <Container className={appStyles.Content}>
-          Comments
+    return (
+      <div>
+        <Container className={styles.containerForm}>
+          <Card body className={styles.cardBackground}>
+            <Row>
+              <Col>
+                <h2>Exercise</h2>
+                  {currentUser ? (
+                     <Exercise {...exercise.results[0]} setExercise={setExercise} />
+                  ) : null}
+              </Col>
+            </Row>
+          </Card>
         </Container>
-      </Col>
-      <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
-      </Col>
-    </Row>
-  );
-}
+      </div>
+    );
+  
+  }
 
 export default ExercisePage;
