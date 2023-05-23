@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import DropdownEditDelete from "../../components/DropdownEditDelete";
 
 const Set = (props) => {
   const {
@@ -43,6 +44,7 @@ const Set = (props) => {
   return (
     <div>
       <hr />
+      <DropdownEditDelete handleDelete={handleDelete}/>
       <p>Exercise: {exercise_name}</p>
       <p>Reps {reps}</p>
       <p>{value_of_unit_1} {exercise_unit_1}</p>

@@ -13,7 +13,7 @@ import WorkoutPage from './pages/workouts/WorkoutPage';
 import WorkoutCreateForm from './pages/workouts/WorkoutCreateForm';
 import { useCurrentUser } from './contexts/CurrentUserContext';
 import WorkoutsPage from './pages/workouts/WorkoutsPage';
-import WorkoutEditForm from './pages/workouts/WorkutEditForm';
+import WorkoutEditForm from './pages/workouts/WorkoutEditForm';
 import ExerciseEditForm from './pages/exercises/ExerciseEditForm';
 
 
@@ -35,6 +35,7 @@ function App() {
               <Route exact path='/exercises/create' render ={() => <ExerciseCreateForm />} />
               <Route exact path='/exercises/:id/edit' render ={() => <ExerciseEditForm />} />
               <Route exact path='/exercises/:id' render ={() => <ExercisePage />} />
+              <Route exact path='/workouts/' render ={() => < WorkoutsPage/>} />
               <Route exact path='/workouts/create' render ={() => < WorkoutCreateForm />} />
               <Route exact path='/workouts/:id/edit' render ={() => < WorkoutEditForm />} />
               <Route exact path='/workouts/:id' render ={() => <WorkoutPage />} />
