@@ -5,7 +5,7 @@ import axios from "axios";
 import styles from '../../styles/SignUpForm.module.css'
 
 import { useHistory } from "react-router";
-import { axiosReq } from "../../api/axiosDefaults";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 
 const ExerciseEditForm = () => {
@@ -44,7 +44,14 @@ const ExerciseEditForm = () => {
           [event.target.name]: event.target.value,
         })
       }
-      
+      const handleDelete = async () => {
+        try {
+          await axiosRes.delete(`/exercises/${id}`);
+          history.push(`/exercises`);
+  
+        } catch (err) {}
+      };
+
       const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -123,9 +130,14 @@ const ExerciseEditForm = () => {
                     {message}
                   </Alert>  
                   ))}
+                  <div className="d-flex justify-content-between align-items-center">
                   <Button variant="dark" type="submit" className="mt-3">
                     Save
                   </Button>
+                  <Button variant="danger" onClick={handleDelete} className="mt-3">
+                    Delete
+                  </Button>
+                  </div>
                   {errors.non_field_errors?.map((message, idx) => (
                   <Alert key={idx} variant="warning" className='mt-3'>
                     {message}
