@@ -57,7 +57,7 @@ const logOutDisplay = (<>
                 </Card>
                 <Card>
                     <Card.Body>
-                        <Card.Title></Card.Title>
+                        <Card.Title>Create an account</Card.Title>
                         <Card.Text className="d-flex justify-content-between align-items-center">
                             Create an Account and start tracking your workout data!
                             <Link to={'/signup'} className="btn btn-primary"><i className="fa-solid fa-user-plus"></i></Link>
@@ -66,7 +66,7 @@ const logOutDisplay = (<>
                 </Card>
             </CardDeck>
   </>)
-  
+
     return (
         <div>
             <h2>
