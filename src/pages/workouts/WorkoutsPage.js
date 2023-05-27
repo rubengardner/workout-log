@@ -4,9 +4,9 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Workout from "./Workout";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Accordion, Button, Card } from "react-bootstrap";
+import { Accordion, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import DropdownEditDelete from "../../components/DropdownEditDelete";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 
 function WorkoutsPage({ message, filter = "" }) {
@@ -48,17 +48,17 @@ function WorkoutsPage({ message, filter = "" }) {
 
                 {currentUser && workouts.length ? (
                     workouts.map((workout, index) => (
-                        <Accordion>
+                      <Accordion key={workout.id}>
                             <Card>
                             <Card.Header>
                             <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className="d-flex justify-content-between align-items-center">
                             <span>Workout {index + 1}</span>
-                            <DropdownEditDelete />
                             </Accordion.Toggle>
                             </Card.Header>
                             <Accordion.Collapse eventKey='0'>
-                            <Card.Body>
+                            <Card.Body className="d-flex justify-content-between align-items-center">
                             <Workout {...workout} setWorkouts={setWorkouts} />
+                            <Link to={`/workouts/${workout.id}/edit`} className="btn btn-primary">Edit</Link>
                             </Card.Body>
                             </Accordion.Collapse>
                             </Card>

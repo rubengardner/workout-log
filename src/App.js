@@ -16,6 +16,7 @@ import WorkoutsPage from './pages/workouts/WorkoutsPage';
 import WorkoutEditForm from './pages/workouts/WorkoutEditForm';
 import ExerciseEditForm from './pages/exercises/ExerciseEditForm';
 import ExercisesPage from './pages/exercises/ExercisesPage';
+import LandingPage from './pages/landing/LandingPage';
 
 
 export const CurrentUserContext = createContext();
@@ -30,7 +31,9 @@ function App() {
           <NavBar/>
           <Container className={styles.Main}>
             <Switch>
-              <Route exact path='/feed' render ={() => < WorkoutsPage message="No workouts were found"/>} />
+            <Route exact path='/' render ={() => <LandingPage/>} />
+              <Route exact path='/feed-workout' render ={() => < WorkoutsPage message="No workouts were found"/>} />
+              <Route exact path='/feed-exercise' render ={() => < ExercisesPage message="No exercise were found"/>} />
               <Route exact path='/login' render ={() => <SignInForm />} />
               <Route exact path='/signup' render ={() => <SignUpForm />} />
               <Route exact path='/exercises/' render ={() => <ExercisesPage/>} />

@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { axiosRes } from "../../api/axiosDefaults";
 
 const Exercise = (props) => {
   const {
     name,
     unit_1,
     unit_2,
-    id,
-    setExercise,
   } = props;
 
 
