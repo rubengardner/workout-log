@@ -1,15 +1,17 @@
 // React and Router
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Col, Container, Card, CardDeck } from "react-bootstrap";
+import { Card, CardDeck } from "react-bootstrap";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-// import styles from "../../styles/Splash.module.css";
+// import styles from "../../styles/.module.css";
 
 
 const LandingPage = () => {
-    return (
-        <div>
-            <CardDeck>
+
+    const currentUser = useCurrentUser();
+const logInDisplay = (<>
+ <CardDeck>
                 <Card>
                     <Card.Body>
                         <Card.Title>Workout</Card.Title>
@@ -39,6 +41,38 @@ const LandingPage = () => {
                     </Card.Body>
                 </Card>
             </CardDeck>
+
+</>)
+
+const logOutDisplay = (<>
+   <CardDeck>
+                <Card>
+                    <Card.Body>
+                        <Card.Title>Login</Card.Title>
+                        <Card.Text className="d-flex justify-content-between align-items-center">
+                            Login into your account to see your data
+                            <Link to={'/login'} className="btn btn-primary"><i className="fa-solid fa-user"></i></Link>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+                <Card>
+                    <Card.Body>
+                        <Card.Title></Card.Title>
+                        <Card.Text className="d-flex justify-content-between align-items-center">
+                            Create an Account and start tracking your workout data!
+                            <Link to={'/signup'} className="btn btn-primary"><i className="fa-solid fa-user-plus"></i></Link>
+                        </Card.Text>
+                    </Card.Body>
+                </Card>
+            </CardDeck>
+  </>)
+  
+    return (
+        <div>
+            <h2>
+                Welcome to your Workout log App
+            </h2>
+            {currentUser ? logInDisplay : logOutDisplay}
         </div>
     );
 };
