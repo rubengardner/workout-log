@@ -20,7 +20,7 @@ function ExercisesPage({ message, filter = "" }) {
     const fetchExercises = async () => {
       try {
         const { data } = await axiosReq.get('/exercises');
-  
+
         const userExercises = data.results.filter(exercise => exercise.is_owner === true);
         setExercises(userExercises);
 
@@ -40,34 +40,37 @@ function ExercisesPage({ message, filter = "" }) {
   return (
     <div>
       <Container>
-        
+
         <Card body>
           <Row>
             <Col>
               <h2>Your list of Exercise</h2>
+              {currentUser && exercises.length ? (
+                exercises.map((exercise, index) => (
+                  <Accordion key={index}>
+                    <Card>
+                      <Card.Header>
+                        <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className="d-flex justify-content-between align-items-center">
+                          <span>Exercise: {exercise.name}</span>
+                          <i className="fa-solid fa-chevron-down"></i>
+                        </Accordion.Toggle>
+                      </Card.Header>
+                      <Accordion.Collapse eventKey='0'>
+                        <Card.Body>
+                          <Exercise {...exercise} setExercises={setExercises} />
+                          <ButtonGroup>
+                            <Button variant="secondary" href={`/exercises/${exercise.id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
+                            <Button variant="secondary" href={`/exercises/${exercise.id}/`}><i className="fa-solid fa-circle-info"></i></Button>
+                          </ButtonGroup>
+                        </Card.Body>
+                      </Accordion.Collapse>
+                    </Card>
+                  </Accordion>
 
-                {currentUser && exercises.length ? (
-                    exercises.map((exercise, index) => (
-                        <Accordion key={index}>
-                            <Card>
-                            <Card.Header>
-                            <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" >
-                            <span>Exercise: {exercise.name}</span>
-                            </Accordion.Toggle>
-                            </Card.Header>
-                            <Accordion.Collapse eventKey='0'>
-                            <Card.Body className="d-flex justify-content-between align-items-center">
-                            <Exercise {...exercise} setExercises={setExercises} />
-                            <Link to={`/exercises/${exercise.id}/edit`} className="btn btn-primary">Edit</Link>
-                            </Card.Body>
-                            </Accordion.Collapse>
-                            </Card>
-                        </Accordion>
-                       
-                    ))
-                ) : (
-                    <h3> No Exercise yet! Add some!</h3>
-                )}
+                ))
+              ) : (
+                <h3> No Exercise yet! Add some!</h3>
+              )}
             </Col>
           </Row>
         </Card>
