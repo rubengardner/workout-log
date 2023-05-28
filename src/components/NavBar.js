@@ -34,7 +34,7 @@ const NavBar = () => {
   return (
     <Container >
       <Navbar className={styles.NavBar} expand="md" expanded={expanded} fixed='top'>
-        <Navbar.Brand href="#home" id={styles.Logo}>Workout Log</Navbar.Brand>
+        <Navbar.Brand href="/" id={styles.Logo}>Workout Log</Navbar.Brand>
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
