@@ -92,7 +92,7 @@ const WorkoutEditForm = () => {
                   <Button className={`${styles.Buttons} mt-3`} variant="dark" type="submit">
                     <i className="fa-solid fa-pen-to-square"></i>
                   </Button>
-                  <Button variant="danger"  onClick={handleShow} className={`${styles.DeleteButton} mt-3`}>
+                  <Button variant="danger" onClick={handleShow} className={`${styles.DeleteButton} mt-3`}>
                     <i className="fa-solid fa-xmark"></i>
                   </Button>
                 </div>
@@ -108,7 +108,7 @@ const WorkoutEditForm = () => {
         </Modal.Header>
         <Modal.Body>Are you sure you want to delete the workout?</Modal.Body>
         <Modal.Footer>
-        <Button className={styles.DeleteButton} variant="primary" type="submit" onClick={(event) => { handleDelete(event); handleClose(); }}>
+          <Button className={styles.DeleteButton} variant="primary" type="submit" onClick={(event) => { handleDelete(event); handleClose(); }}>
             DELETE
           </Button>
         </Modal.Footer>
