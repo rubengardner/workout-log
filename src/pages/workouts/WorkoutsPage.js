@@ -4,6 +4,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Row, Col, Container, Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/WorkoutsPage.module.css'
+import CreateSetModal from "../../CreateSetModal";
 
 
 function WorkoutsPage({ message, filter = "" }) {
@@ -43,7 +44,6 @@ function WorkoutsPage({ message, filter = "" }) {
           <Row>
             <Col>
               <h2>Your list of workouts</h2>
-
               {currentUser && workouts.length ? (
                 workouts.map((workout, index) => (
                   <Accordion key={workout.id}>

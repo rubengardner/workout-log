@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Container, Card } from 'react-bootstrap'
+import { Row, Col, Container, Card, Button } from 'react-bootstrap'
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Workout from "./Workout";
@@ -7,6 +7,7 @@ import styles from '../../styles/WorkoutPage.module.css'
 import Set from "../sets/Set";
 import SetCreateForm from "../sets/SetCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import CreateSetModal from "../../CreateSetModal";
 
 function WorkoutPage() {
   const { id } = useParams();
@@ -40,14 +41,17 @@ function WorkoutPage() {
               <Workout {...workout.results[0]} setWorkouts={setWorkout} />
               <div>
                 {currentUser ? (
+                  <>
+                  <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
                   <SetCreateForm
                     workout={id}
                     setWorkout={setWorkout}
                     setSets={setSets}
                     profile_id={currentUser.profile_id}
                   />
+                  </>
                 ) : null}
-                {sets.results.length ? <p>Sets:</p> : null}
+                {sets.results.length ? <p className='mt-4'>Sets:</p> : null}
                 {sets.results.length ? (
                   sets.results.map((set) => (
                     <Set
@@ -58,7 +62,7 @@ function WorkoutPage() {
                     />
                   ))
                 ) : (
-                  <p>No sets yet</p>
+                  <p className='mt-4'>No sets yet</p>
                 )}
               </div>
             </Col>

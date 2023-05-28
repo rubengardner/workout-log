@@ -24,7 +24,7 @@ const Set = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/sets/${id}/`);
+      await axiosRes.delete(`/sets/${id}`);
       setWorkout((prevWorkout) => ({
         results: [
           {
@@ -59,7 +59,7 @@ const Set = (props) => {
             )}
             <ButtonGroup>
               <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
-              <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/`}><i className="fa-solid fa-circle-info"></i></Button>
+              <Button className={styles.DeleteButton} variant="secondary" onClick={handleDelete}><i className="fa-solid fa-xmark"></i></Button>
             </ButtonGroup>
           </Card.Body>
         </Accordion.Collapse>

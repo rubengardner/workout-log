@@ -1,4 +1,14 @@
 .Buttons {
-    background-color: #BECFDB;
+    background-color: #F6CA80;
     color: #36454F;
+}
+
+.ModalFooterHeader {
+    background-color: #36454F;
+    color: #F6CA80;
+}
+
+.ModalBody {
+    background-color: #BECFDB;
+    color: #000000;
 }
