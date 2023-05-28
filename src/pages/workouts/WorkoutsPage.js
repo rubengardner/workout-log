@@ -6,7 +6,7 @@ import Workout from "./Workout";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import styles from '../../styles/WorkoutsPage.module.css'
 
 
 function WorkoutsPage({ message, filter = "" }) {
@@ -14,6 +14,7 @@ function WorkoutsPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
 
+  // Fetches workouts from the server and updates the state
   useEffect(() => {
     let timer;
 
@@ -21,6 +22,7 @@ function WorkoutsPage({ message, filter = "" }) {
       try {
         const { data } = await axiosReq.get('/workouts');
 
+        // Filter the results to get user-owned workouts
         const userWorkouts = data.results.filter(workout => workout.is_owner === true);
         setWorkouts(userWorkouts);
 
@@ -40,8 +42,7 @@ function WorkoutsPage({ message, filter = "" }) {
   return (
     <div>
       <Container>
-
-        <Card body>
+        <Card className={styles.Cards} body>
           <Row>
             <Col>
               <h2>Your list of workouts</h2>
@@ -49,20 +50,20 @@ function WorkoutsPage({ message, filter = "" }) {
               {currentUser && workouts.length ? (
                 workouts.map((workout, index) => (
                   <Accordion key={workout.id}>
-                    <Card>
-                      <Card.Header>
-                        <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className="d-flex justify-content-between align-items-center">
+                    <Card >
+                      <Card.Header className={styles.CardHeader}>
+                        <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className={`${styles.IndividualCard} d-flex justify-content-between align-items-center`}>
                           <span>Workout {index + 1}</span>
                           <i className="fa-solid fa-chevron-down"></i>
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
-                        <Card.Body>
+                        <Card.Body className={styles.CardBody}>
                           <Workout {...workout} setWorkouts={setWorkouts} />
-                            <ButtonGroup>
-                              <Button variant="secondary" href={`/workouts/${workout.id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
-                              <Button variant="secondary" href={`/workouts/${workout.id}/`}><i className="fa-solid fa-circle-info"></i></Button>
-                            </ButtonGroup>
+                          <ButtonGroup>
+                            <Button className={styles.Buttons} variant="secondary" href={`/workouts/${workout.id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
+                            <Button className={styles.Buttons} variant="secondary" href={`/workouts/${workout.id}/`}><i className="fa-solid fa-circle-info"></i></Button>
+                          </ButtonGroup>
                         </Card.Body>
                       </Accordion.Collapse>
                     </Card>

@@ -32,21 +32,22 @@ const NavBar = () => {
   </>)
 
   return (
-    <Container>
-       <Navbar bg="light" expand="md"expanded={expanded} fixed='top'>
-            <Navbar.Brand href="#home">Workout Log</Navbar.Brand>
-            <Navbar.Toggle
-              ref={ref}
-              onClick={() => setExpanded(!expanded)}
-              aria-controls="basic-navbar-nav"
-            />  
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to='/'>Home</NavLink>
-                    {currentUser ? logInDisplay : logOutDisplay}
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
+    <Container >
+      <Navbar className={styles.NavBar} expand="md" expanded={expanded} fixed='top'>
+        <Navbar.Brand href="#home" id={styles.Logo}>Workout Log</Navbar.Brand>
+        <Navbar.Toggle
+          ref={ref}
+          onClick={() => setExpanded(!expanded)}
+          aria-controls="basic-navbar-nav"
+          id={styles.Toggle}
+        />
+        <Navbar.Collapse id="basic-navbar-nav" className={styles.NavBar}>
+          <Nav className={`${styles.NavBar} mr-auto`}>
+            <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to='/'>Home</NavLink>
+            {currentUser ? logInDisplay : logOutDisplay}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
     </Container>
   )
 }

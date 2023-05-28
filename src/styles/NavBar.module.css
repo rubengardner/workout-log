@@ -1,7 +1,22 @@
 .NavLink {
     padding: 5px;
+    color: #F6CA80;
+    text-decoration: none;
 }
 
 .Active {
-    color: red;
+    color: #13A384;
+}
+
+.NavBar {
+    background-color: #36454F;
+    color: #F6CA80;
+}
+
+#Logo {
+    color: #F6CA80;
+}
+
+#Toggle {
+    background-color: #F6CA80;
 }
