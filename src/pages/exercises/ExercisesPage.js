@@ -6,7 +6,7 @@ import Exercise from "./Exercise";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom";
+import styles from '../../styles/ExercisesPage.module.css'
 
 
 function ExercisesPage({ message, filter = "" }) {
@@ -40,27 +40,26 @@ function ExercisesPage({ message, filter = "" }) {
   return (
     <div>
       <Container>
-
-        <Card body>
+        <Card className={styles.Cards} body>
           <Row>
             <Col>
               <h2>Your list of Exercise</h2>
               {currentUser && exercises.length ? (
                 exercises.map((exercise, index) => (
                   <Accordion key={index}>
-                    <Card>
-                      <Card.Header>
-                        <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className="d-flex justify-content-between align-items-center">
+                    <Card >
+                      <Card.Header className={styles.CardHeader}>
+                        <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className={`${styles.IndividualCard} d-flex justify-content-between align-items-center`}>
                           <span>Exercise: {exercise.name}</span>
                           <i className="fa-solid fa-chevron-down"></i>
                         </Accordion.Toggle>
                       </Card.Header>
                       <Accordion.Collapse eventKey='0'>
-                        <Card.Body>
+                        <Card.Body className={styles.CardBody}>
                           <Exercise {...exercise} setExercises={setExercises} />
                           <ButtonGroup>
-                            <Button variant="secondary" href={`/exercises/${exercise.id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
-                            <Button variant="secondary" href={`/exercises/${exercise.id}/`}><i className="fa-solid fa-circle-info"></i></Button>
+                            <Button className={styles.Buttons} variant="secondary" href={`/exercises/${exercise.id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
+                            <Button className={styles.Buttons} variant="secondary" href={`/exercises/${exercise.id}/`}><i className="fa-solid fa-circle-info"></i></Button>
                           </ButtonGroup>
                         </Card.Body>
                       </Accordion.Collapse>
