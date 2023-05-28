@@ -50,7 +50,7 @@ const LandingPage = () => {
                     <Card.Title>Login</Card.Title>
                     <Card.Text className="d-flex justify-content-between align-items-center">
                         Login into your account to see your data
-                        <Link to={'/login'} className="btn btn-primary"><i className="fa-solid fa-user"></i></Link>
+                        <Link to={'/login'} className={`${styles.buttons} btn`}><i className="fa-solid fa-user"></i></Link>
                     </Card.Text>
                 </Card.Body>
             </Card>
@@ -59,7 +59,7 @@ const LandingPage = () => {
                     <Card.Title>Create an account</Card.Title>
                     <Card.Text className="d-flex justify-content-between align-items-center">
                         Create an Account and start tracking your workout data!
-                        <Link to={'/signup'} className="btn btn-primary"><i className="fa-solid fa-user-plus"></i></Link>
+                        <Link to={'/signup'}  className={`${styles.buttons} btn`}><i className="fa-solid fa-user-plus"></i></Link>
                     </Card.Text>
                 </Card.Body>
             </Card>
