@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
 import Workout from "./Workout";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
+import { Row, Col, Container, Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/WorkoutsPage.module.css'
 

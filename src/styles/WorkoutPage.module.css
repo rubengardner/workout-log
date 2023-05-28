@@ -6,3 +6,13 @@
     width: 90%;
     max-width: 600px;
 }
+
+.Cards {
+    background-color: #36454F;
+    color: #F6CA80;
+}
+
+.Buttons {
+    background-color: #BECFDB;
+    color: #36454F;
+}

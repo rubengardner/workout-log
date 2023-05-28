@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
+import { Button } from "react-bootstrap";
+import styles from '../../styles/SetCreateForm.module.css'
 
 function SetCreateForm(props) {
   const { workout, setWorkout, setSets, profile_id } = props;
@@ -105,6 +106,7 @@ function SetCreateForm(props) {
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices
+                placeholder='Reps'
             />
             </Form.Group>
             <Form.Group controlId="value_of_unit_1">
@@ -117,6 +119,7 @@ function SetCreateForm(props) {
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices
+                placeholder='Value of unit 1'
             />
             </Form.Group>
             <Form.Group controlId="value_of_unit_2">
@@ -129,9 +132,10 @@ function SetCreateForm(props) {
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices
+                placeholder='Value of unit 2'
             />
             </Form.Group>
-      <button type="submit">Create set</button>
+      <Button className={styles.Buttons} variant="dark" type="submit">Create set</Button>
     </Form>
   );
 }

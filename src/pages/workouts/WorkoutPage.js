@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
-import appStyles from "../../App.module.css";
+import { Row, Col, Container, Card } from 'react-bootstrap'
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Workout from "./Workout";
@@ -14,7 +13,6 @@ function WorkoutPage() {
   const [workout, setWorkout] = useState({ results: [] });
   const [sets, setSets] = useState({ results: [] });
   const currentUser = useCurrentUser();
- 
 
   useEffect(() => {
     const handleMount = async () => {
@@ -34,8 +32,8 @@ function WorkoutPage() {
 
   return (
     <div>
-      <Container className={styles.containerForm}>
-        <Card body className={styles.cardBackground}>
+      <Container>
+        <Card body className={styles.Cards}>
           <Row>
             <Col>
               <h2>Workout</h2>

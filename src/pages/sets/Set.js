@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-
+import React from "react";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import { Row, Col, Container, Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { axiosRes } from "../../api/axiosDefaults";
+import styles from '../../styles/Set.module.css'
 
 const Set = (props) => {
   const {
@@ -37,19 +38,33 @@ const Set = (props) => {
         ...prevSets,
         results: prevSets.results.filter((set) => set.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
-    <div>
-      <hr />
-      <p>Exercise: {exercise_name}</p>
-      <p>Reps {reps}</p>
-      <p>{value_of_unit_1} {exercise_unit_1}</p>
-      {exercise_unit_2 && (
-        <p>{value_of_unit_2} {exercise_unit_2}</p>
-      )}
-    </div>
+    <Accordion key={id}>
+      <Card >
+        <Card.Header className={styles.CardHeader}>
+          <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className={`${styles.IndividualCard} d-flex justify-content-between align-items-center`}>
+            <span> Set: {exercise_name}</span>
+            <i className="fa-solid fa-chevron-down"></i>
+          </Accordion.Toggle>
+        </Card.Header>
+        <Accordion.Collapse eventKey='0'>
+          <Card.Body className={styles.CardBody}>
+            <p>Reps: {reps}</p>
+            <p>Unit: {value_of_unit_1} {exercise_unit_1}</p>
+            {exercise_unit_2 && (
+              <p>{value_of_unit_2} {exercise_unit_2}</p>
+            )}
+            <ButtonGroup>
+              <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
+              <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/`}><i className="fa-solid fa-circle-info"></i></Button>
+            </ButtonGroup>
+          </Card.Body>
+        </Accordion.Collapse>
+      </Card>
+    </Accordion>
   );
 };
 
