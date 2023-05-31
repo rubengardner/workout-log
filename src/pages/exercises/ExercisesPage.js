@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Exercise from "./Exercise";
+import Exercise from "../../components/Exercise";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";

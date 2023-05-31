@@ -3,7 +3,7 @@ import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
 import styles from '../../styles/ExercisePage.module.css'
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Exercise from "./Exercise";
+import Exercise from "../../components/Exercise";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ExercisePage() {

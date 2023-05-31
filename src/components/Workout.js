@@ -1,11 +1,7 @@
 import React from "react";
-import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-
-import { axiosRes } from "../../api/axiosDefaults";
-// import { MoreDropdown } from "../../components/MoreDropdown";
+import { Row, Col } from 'react-bootstrap'
+import { useHistory } from "react-router-dom";
+import { axiosRes } from "../api/axiosDefaults";
 
 const Workout = (props) => {
   const {

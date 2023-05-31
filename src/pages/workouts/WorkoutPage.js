@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Row, Col, Container, Card, Button } from 'react-bootstrap'
+import { Row, Col, Container, Card, Button } from 'react-bootstrap';
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
-import Workout from "./Workout";
-import styles from '../../styles/WorkoutPage.module.css'
-import Set from "../sets/Set";
+import Workout from "../../components/Workout";
+import styles from '../../styles/WorkoutPage.module.css';
+import Set from "../../components/Set";
 import SetCreateForm from "../sets/SetCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import CreateSetModal from "../../CreateSetModal";
 
 function WorkoutPage() {
   const { id } = useParams();

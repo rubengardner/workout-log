@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import React from "react";
+import { useCurrentUser } from "../contexts/CurrentUserContext";
 
 const Exercise = (props) => {
   const {

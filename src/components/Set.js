@@ -1,8 +1,8 @@
 import React from "react";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Row, Col, Container, Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
-import { axiosRes } from "../../api/axiosDefaults";
-import styles from '../../styles/Set.module.css'
+import { useCurrentUser } from "../contexts/CurrentUserContext";
+import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
+import { axiosRes } from "../api/axiosDefaults";
+import styles from '../styles/Set.module.css'
 
 const Set = (props) => {
   const {

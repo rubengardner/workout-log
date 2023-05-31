@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Workout from "./Workout";
+import Workout from "../../components/Workout";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Row, Col, Container, Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/WorkoutsPage.module.css'
-import CreateSetModal from "../../CreateSetModal";
 
 
 function WorkoutsPage({ message, filter = "" }) {
