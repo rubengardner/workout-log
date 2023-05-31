@@ -20,12 +20,11 @@ You can view the back-end README.md here - <a href="" target="_blank" rel="noope
             -   [Strategy Table](#strategy-table) 
 -   [2. Wireframes](#wireframes)
 -   [3. Surface](#surface) 
--   [4. Features](#features) 
--   [5. Technologies Used](#technologies-used)
--   [6. Testing](#testing)
--   [7. Deployment](#deployment)
--   [8. Known Bugs](#known-bugs)
--   [9. Credits](#credits)
+-   [4. Technologies Used](#technologies-used)
+-   [5. Testing](#testing)
+-   [6. Deployment](#deployment)
+-   [7. Known Bugs](#known-bugs)
+-   [8. Credits](#credits)
 
 
 # User experience
@@ -48,7 +47,16 @@ Returning Visitor Goals
 
 
 ### User stories:
-Throughout the project, I effectively utilized the GitHub Projects board as my project management tool. This involved logging all user stories, allowing me to stay organized and on track. By moving relevant tasks to the "in progress" lane as I worked on them and subsequently shifting them to the "done" lane upon completion, I maintained a clear overview of my progress and ensured efficient task management.
+Throughout the project, I effectively utilized the GitHub Projects board as my project management tool. This involved logging all user stories, allowing me to stay organized and on track. By moving relevant tasks to the "in progress" lane as I worked on them and subsequently shifting them to the "done" lane upon completion, I maintained a clear overview of my progress and ensured efficient task management. 
+
+Backlog 1:
+![backlog-1](media/backlog1.png)
+
+Backlog 2:
+![backlog-2](media/backlog2.png)
+
+Backlog 3:
+![backlog-3](media/backlog3.png)
 
 
 
@@ -71,7 +79,6 @@ Create a Set | 5 | 4
 Update a Set | 5 | 4
 Delete a Set | 5 | 4
 Graphs tracking metrics | 4 | 1
-Show already booked tables | 4 | 1
 
 
 ### Scope
@@ -87,14 +94,27 @@ Phase 1:
 
 # Wireframes
 
+Landing page:
+![home_page](media/landing-page-mockup.png)
+
+Sign up / sign in:
+![signup](media/signup-mockup.png)
+
+List of workouts:
+![list_workouts](media/list-of-workouts-mockup.png)
+
+Workout specific:
+![workout_specific](media/workout-specific-mockup.png)
+
 # Surface
 
 ## Color palette
 
 The website primarily utilizes the following colors:
-* Cream color: rgba(255,240,201,1)
-* Dark brown: rgba(115,68,59,0.95)
-* Salmon filter: rgba(254,111,97,0.15)
+* Gold: #F6CA80
+* Dark grey: #36454F
+* Light grey: #dfe0df
+* Light Blue: #BECFDB
 * The inherent colors from Bootstrap
 * White
 * Black
@@ -104,14 +124,76 @@ The website primarily utilizes the following colors:
 The website has been tested for accessibility using WebAIM's contrast checker to ensure that the text and background colors used on the website provide enough contrast for users to read the information displayed on the web.
 
 Contrast check 1:
-![contrast check 1](images/features/contrast_check1.png)
+![contrast check 1](media/contrast1.png)
 
 Contrast check 2:
-![contrast check 2](images/features/contrast_check2.png)
+![contrast check 2](media/contrast2.png)
 
 ### Typography
 
 The main font used throughout the website is Poppins. In case Poppins is not imported correctly, the fallback font will be a sans-serif font. The choice of Poppins was made after researching fonts that are optimized for reading
+
+# testing
+
+## All Pages (Nav Bar):
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Home page | When the "home" button in the navigation bar is clicked, the browser redirects the user to the home page and the "active" styling appears on the home button | PASS
+Workouts page |When the "workouts" button in the navigation bar is clicked, the browser redirects the user to the workouts feed page and the "active" styling appears on the workouts button.  | PASS
+Exercise page | When the "exercise" button in the navigation bar is clicked, the browser redirects the user to the exercise feed page and the "active" styling appears on the exercise button. | PASS
+Log out | When the "Log out" button in the navigation bar is clicked, User is logged out | PASS
+Log in |  When the "Log in" button in the navigation bar is clicked, the browser redirects the user to the Log in page and the "active" styling appears on the Log in button. | PASS
+Sign in |  When the "Sign in" button in the navigation bar is clicked, the browser redirects the user to the Sign in page and the "active" styling appears on the Sign in button. | PASS
+Foreground & background colour | Checked foreground information is not distracted by background color or images | PASS
+Text | Checked that all fonts and colours used are consistent. | PASS
+
+## Home
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Responsiveness | All elements on the page have been checked to ensure consistent scalability across mobile, tablet, and desktop views..| PASS
+Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
+Links | All links are functional and take the user to the correct pages. | PASS
+
+## Workouts page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Workout unit | When a workout unit is clicked, it's information is displayed. | PASS
+Workout unit links | When a workout unit link is clicked, it redirects you to the correct page. | PASS
+Responsiveness | All elements on the page have been checked to ensure consistent scalability across mobile, tablet, and desktop views..| PASS
+Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
+Links | All links are functional and take the user to the correct pages. | PASS
+
+## Individual workout page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Sets | All sets that belong to the workout display | PASS
+Add set | A modal is displayed and permits access to the form to create a set | PASS
+Add set modal | Closes when the form is submited correctly or outside the form is clicked | PASS
+Workout unit links | When a workout unit link is clicked, it redirects you to the correct page. | PASS
+Responsiveness | All elements on the page have been checked to ensure consistent scalability across mobile, tablet, and desktop views..| PASS
+Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
+Links | All links are functional and take the user to the correct pages. | PASS
+
+## Exercises page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Exercise unit | When a exercise unit is clicked, it's information is displayed. | PASS
+Responsiveness | All elements on the page have been checked to ensure consistent scalability across mobile, tablet, and desktop views..| PASS
+Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
+Links | All links are functional and take the user to the correct pages. | PASS
+
+## Add Exercise page
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Exercise |When the form is submited correctly, the user is redirected to exercise feed. | PASS
+Responsiveness | All elements on the page have been checked to ensure consistent scalability across mobile, tablet, and desktop views..| PASS
+Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
+Links | All links are functional and take the user to the correct pages. | PASS
+
+## Edit forms
+TEST            | OUTCOME                          | PASS / FAIL  
+--------------- | -------------------------------- | ---------------
+Forms | Forms are populated with the correct data | PASS
 
 # Technologies Used
 
@@ -149,3 +231,37 @@ The main font used throughout the website is Poppins. In case Poppins is not imp
 - [Figma](https://www.figma.com/) - Used to create mock-up designs.
 - [Heroku](https://dashboard.heroku.com) - Used to deploy the website
 - [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+
+
+# Deployemnt
+Create new Heroku app
+    - Sign into Heroku
+    - Select New
+    - Select create new app
+    - Enter a relevant app name
+    - Select appropriate region
+    - Select the create app button
+    - Commit and push all files to GitHub
+    - In the deploy tab, go to the manual deploy sections and click deploy branch.
+
+# Credits
+
+## Content
+
+This project was inspired by the [Code Institute](https://codeinstitute.net/) walk-through **Moments** project and has been heavily modified
+
+The files which have been created and used for the League Hub project that have been copied from the **Moments** walkthrough project were the following
+
+- CurrentUserContext.js
+- useRedirect.js
+- axiosDefault.js
+
+Additional files that I have drawn inspiration from and modified to meet the League Hubs needs were the following
+
+- SignIn.js
+- SignUp.js
+- Comment.js
+- CommentCreate.js
+- CommentEdit.js
+- Asset.js
+- utils.js
