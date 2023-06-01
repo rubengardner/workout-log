@@ -26,8 +26,8 @@ const NavBar = () => {
   </>)
 
   const logInDisplay = (<>
-    <NavLink className={styles.NavLink} to="/workouts/create">Workouts</NavLink>
-    <NavLink className={styles.NavLink} to="/exercises/create">Exercises</NavLink>
+    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed-workout">Workouts</NavLink>
+    <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/feed-exercise">Exercises</NavLink>
     <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>Sign out</NavLink>
   </>)
 
