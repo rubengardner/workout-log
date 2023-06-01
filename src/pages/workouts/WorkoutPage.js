@@ -43,7 +43,6 @@ function WorkoutPage() {
               <div>
                 {currentUser ? (
                   <>
-                 
                   <SetCreateForm
                     workout={id}
                     setWorkout={setWorkout}
