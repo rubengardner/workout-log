@@ -8,7 +8,6 @@ import './api/axiosDefaults'
 import SignInForm from './pages/auth/SignInForm';
 import {createContext} from 'react';
 import ExerciseCreateForm from './pages/exercises/ExerciseCreateForm';
-import ExercisePage from './pages/exercises/ExercisePage';
 import WorkoutPage from './pages/workouts/WorkoutPage';
 import WorkoutCreateForm from './pages/workouts/WorkoutCreateForm';
 import { useCurrentUser } from './contexts/CurrentUserContext';
@@ -39,7 +38,6 @@ function App() {
               <Route exact path='/exercises/' render ={() => <ExercisesPage/>} />
               <Route exact path='/exercises/create' render ={() => <ExerciseCreateForm />} />
               <Route exact path='/exercises/:id/edit' render ={() => <ExerciseEditForm />} />
-              <Route exact path='/exercises/:id' render ={() => <ExercisePage />} />
               <Route exact path='/workouts/' render ={() => < WorkoutsPage/>} />
               <Route exact path='/workouts/create' render ={() => < WorkoutCreateForm />} />
               <Route exact path='/workouts/:id/edit' render ={() => < WorkoutEditForm />} />
