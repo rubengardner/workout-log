@@ -56,7 +56,7 @@ function WorkoutsPage({ message, filter = "" }) {
                       <Accordion.Collapse eventKey='0'>
                         <Card.Body className={styles.CardBody}>
                           <Workout {...workout} setWorkouts={setWorkouts} />
-                            <Button className={styles.Buttons} variant="secondary" href={`/workouts/${workout.id}/`}><i className="fa-solid fa-circle-info"></i></Button>
+                            <Button className={styles.Buttons} variant="secondary" href={`/workouts/${workout.id}/`}><i className="fa-solid fa-pen-to-square"></i></Button>
                         </Card.Body>
                       </Accordion.Collapse>
                     </Card>
