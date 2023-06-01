@@ -36,12 +36,14 @@ function WorkoutPage() {
         <Card body className={styles.Cards}>
           <Row>
             <Col>
-              <h2>Workout</h2>
+              <h2>
+                Workout  <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
+              </h2>
               <Workout {...workout.results[0]} setWorkouts={setWorkout} />
               <div>
                 {currentUser ? (
                   <>
-                  <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
+                 
                   <SetCreateForm
                     workout={id}
                     setWorkout={setWorkout}

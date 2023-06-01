@@ -90,10 +90,10 @@ const WorkoutEditForm = () => {
                 </Form.Group>
                 <div className="d-flex justify-content-between align-items-center">
                   <Button className={`${styles.Buttons} mt-3`} variant="dark" type="submit">
-                    <i className="fa-solid fa-pen-to-square"></i>
+                    Update <i className="fa-solid fa-pen-to-square"></i>
                   </Button>
                   <Button variant="danger" onClick={handleShow} className={`${styles.DeleteButton} mt-3`}>
-                    <i className="fa-solid fa-xmark"></i>
+                    Delete <i className="fa-solid fa-xmark"></i>
                   </Button>
                 </div>
               </Form>
