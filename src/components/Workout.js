@@ -1,7 +1,6 @@
 import React from "react";
-import { Row, Col } from 'react-bootstrap'
-import { useHistory } from "react-router-dom";
-import { axiosRes } from "../api/axiosDefaults";
+import { Row, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 const Workout = (props) => {
   const {
@@ -11,18 +10,23 @@ const Workout = (props) => {
   } = props;
   
   return (
-   <div>
-          <Row>
-            <Col>
-              <p>Date: {date}</p>
-              <p>Sets count: {sets_count}</p>
-              <p>Exercise count: {exercise_count}</p>
-
-            </Col>
-          </Row>
-          
-   </div>
+    <div>
+      <Row>
+        <Col>
+          {/* Display workout details */}
+          <p>Date: {date}</p>
+          <p>Sets count: {sets_count}</p>
+          <p>Exercise count: {exercise_count}</p>
+        </Col>
+      </Row>
+    </div>
   );
+};
+
+Workout.propTypes = {
+  sets_count: PropTypes.number.isRequired,
+  exercise_count: PropTypes.number.isRequired,
+  date: PropTypes.string.isRequired,
 };
 
 export default Workout;
