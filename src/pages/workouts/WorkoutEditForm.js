@@ -9,7 +9,6 @@ import styles from '../../styles/WorkoutEditForm.module.css'
 import { NotificationManager } from 'react-notifications';
 
 const WorkoutEditForm = () => {
-  const [errors, setErrors] = useState({})
   const history = useHistory();
   const [startDate, setStartDate] = useState(new Date());
   const { id } = useParams();
@@ -37,7 +36,7 @@ const WorkoutEditForm = () => {
           console.error("Invalid date:", date);
         }
       } catch (err) {
-        // Handle the error
+        console.log(err)
       }
     };
 
