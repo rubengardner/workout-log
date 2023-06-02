@@ -31,7 +31,7 @@ const SignUpForm = () => {
       NotificationManager.success("You successfully created an account", "Success!");
     } catch (err) {
       setErrors(err.response?.data);
-      NotificationManager.error("Something went wrong", "Error!")
+      NotificationManager.error("Something went wrong", "Error!");
     }
   };
 

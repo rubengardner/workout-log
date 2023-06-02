@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react'
 import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
-
 import styles from '../../styles/ExerciseCreateForm.module.css'
-
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
+import { NotificationManager } from 'react-notifications';
 
 const ExerciseCreateForm = () => {
   const [exerciseData, setExerciseData] = useState({
@@ -35,8 +34,9 @@ const ExerciseCreateForm = () => {
     try {
       const { data } = await axiosReq.post("/exercises/", formData);
       history.push(`/exercises/`);
+      NotificationManager.success("You successfully created an exercise", "Success!");
     } catch (err) {
-      console.log(err);
+      NotificationManager.error("Something went wrong", "Error!");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

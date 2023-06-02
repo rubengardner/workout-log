@@ -34,7 +34,7 @@ function SignInForm() {
       NotificationManager.success("You login successfully", "Success!");
     } catch (err) {
       setErrors(err.response?.data);
-      NotificationManager.error("Something went wrong", "Error!")
+      NotificationManager.error("Something went wrong", "Error!");
     }
   };
 

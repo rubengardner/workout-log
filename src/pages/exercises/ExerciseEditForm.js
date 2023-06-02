@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../../styles/ExerciseEditForm.module.css'
+import { NotificationManager } from 'react-notifications';
 
 const ExerciseEditForm = () => {
   const [show, setShow] = useState(false);
@@ -48,7 +49,7 @@ const ExerciseEditForm = () => {
     try {
       await axiosRes.delete(`/exercises/${id}`);
       history.push(`/exercises`);
-
+      NotificationManager.warning("You deleted an excercise", "Warning!");
     } catch (err) { }
   };
 
@@ -62,8 +63,9 @@ const ExerciseEditForm = () => {
     try {
       await axiosReq.put(`/exercises/${id}`, formData);
       history.push(`/exercises/`);
+      NotificationManager.success("You successfully updated an exercise", "Success!");
     } catch (err) {
-      console.log(err);
+      NotificationManager.error("Something went wrong", "Error!");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
