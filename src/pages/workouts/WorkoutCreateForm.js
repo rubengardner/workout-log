@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Form, Button, Row, Col, Container, Card } from 'react-bootstrap';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
-import styles from '../../styles/WorkoutCreateForm.module.css'
+import styles from '../../styles/WorkoutCreateForm.module.css';
 import { NotificationManager } from 'react-notifications';
 
 const WorkoutCreateForm = () => {
@@ -27,9 +27,8 @@ const WorkoutCreateForm = () => {
       NotificationManager.success("You successfully created a workout", "Success!");
     } catch (err) {
       NotificationManager.error("Something went wrong", "Error!");
+    }
   };
-
-
 
   return (
     <div>
@@ -53,7 +52,7 @@ const WorkoutCreateForm = () => {
         </Card>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default WorkoutCreateForm
+export default WorkoutCreateForm;
