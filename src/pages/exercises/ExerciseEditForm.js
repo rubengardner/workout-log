@@ -22,8 +22,6 @@ const ExerciseEditForm = () => {
   const history = useHistory();
   const { id } = useParams();
 
-
-
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -48,7 +46,7 @@ const ExerciseEditForm = () => {
   }
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/exercises/${id}`);
+      await axiosRes.delete(`/exercises/`);
       history.push(`/exercises`);
 
     } catch (err) { }
@@ -63,7 +61,7 @@ const ExerciseEditForm = () => {
     formData.append("unit_2", unit_2);
     try {
       await axiosReq.put(`/exercises/${id}`, formData);
-      history.push(`/exercises/${id}`);
+      history.push(`/exercises/`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
