@@ -34,7 +34,7 @@ const ExerciseCreateForm = () => {
     console.log(formData)
     try {
       const { data } = await axiosReq.post("/exercises/", formData);
-      history.push(`/exercises/${data.id}`);
+      history.push(`/exercises/`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {

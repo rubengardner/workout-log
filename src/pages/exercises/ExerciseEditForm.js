@@ -46,7 +46,7 @@ const ExerciseEditForm = () => {
   }
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/exercises/`);
+      await axiosRes.delete(`/exercises/${id}`);
       history.push(`/exercises`);
 
     } catch (err) { }
