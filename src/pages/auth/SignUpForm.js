@@ -38,7 +38,6 @@ const SignUpForm = () => {
       <Card body className={styles.cardBackground}>
         <Row>
           <Col>
-          
             <h2 className='text-center mt-3'>Sign up</h2>
             <Form onSubmit={handleSubmit} className="mt-5">
               <Form.Group controlId="username">

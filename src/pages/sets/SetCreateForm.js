@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
-import { Button, ButtonGroup, Container, Modal } from "react-bootstrap";
+import { Button, Alert, Modal } from "react-bootstrap";
 import styles from '../../styles/SetCreateForm.module.css'
 
 function SetCreateForm(props) {
+  const [errors, setErrors] = useState({})
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const { workout, setWorkout, setSets, profile_id } = props;
   const [setData, setSetData] = useState({
     exercise: "", // Change field name to "exercise"
@@ -70,14 +69,24 @@ function SetCreateForm(props) {
         value_of_unit_1: "",
         value_of_unit_2: ""
       });
+      handleClose(); // Close the modal after successful submission
+      setErrors({});
     } catch (err) {
-      console.log(err);
+      setErrors(err.response?.data);
     }
+  };
+
+  const handleClose = () => {
+    setShow(false);
+  };
+
+  const handleShow = () => {
+    setShow(true);
   };
 
   return (
     <>
-        <Button className={styles.Buttons} variant="secondary" onClick={handleShow}><i className="fa-solid fa-plus"></i></Button>
+      <Button className={styles.Buttons} variant="secondary" onClick={handleShow}><i className="fa-solid fa-plus"></i></Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className={styles.ModalFooterHeader} closeButton>
           <Modal.Title>Create a set</Modal.Title>
@@ -106,6 +115,11 @@ function SetCreateForm(props) {
                 )}
               </Form.Control>
             </Form.Group>
+            {errors.exercise?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <Form.Group controlId="reps">
               <Form.Label className='d-none'>Reps</Form.Label>
               <Form.Control
@@ -119,6 +133,11 @@ function SetCreateForm(props) {
                 placeholder='Reps'
               />
             </Form.Group>
+            {errors.reps?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <Form.Group controlId="value_of_unit_1">
               <Form.Label className='d-none'>Value of unit 1</Form.Label>
               <Form.Control
@@ -132,6 +151,11 @@ function SetCreateForm(props) {
                 placeholder='Value of unit 1'
               />
             </Form.Group>
+            {errors.value_of_unit_1?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
             <Form.Group controlId="value_of_unit_2">
               <Form.Label className='d-none'>Value of unit 2</Form.Label>
               <Form.Control
@@ -145,13 +169,18 @@ function SetCreateForm(props) {
                 placeholder='Value of unit 2'
               />
             </Form.Group>
+            {errors.value_of_unit_2?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+            ))}
+            <Modal.Footer className={styles.ModalFooterHeader}>
+              <Button className={styles.Buttons} variant="primary" type="submit">
+                <i className="fa-solid fa-plus"></i>
+              </Button>
+            </Modal.Footer>
           </Form>
         </Modal.Body>
-        <Modal.Footer className={styles.ModalFooterHeader}>
-          <Button className={styles.Buttons} variant="primary" type="submit" onClick={(event) => { handleSubmit(event); handleClose(); }}>
-            <i className="fa-solid fa-plus"></i>
-          </Button>
-        </Modal.Footer>
       </Modal>
     </>
   );
