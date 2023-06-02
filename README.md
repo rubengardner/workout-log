@@ -20,7 +20,7 @@ You can view the back-end README.md here - <a href="" target="_blank" rel="noope
             -   [Strategy Table](#strategy-table) 
 -   [2. Wireframes](#wireframes)
 -   [3. Surface](#surface) 
--   [4. Components](#surface)
+-   [4. Components](#components)
 -   [4. Technologies Used](#technologies-used)
 -   [5. Testing](#testing)
 -   [6. Deployment](#deployment)
@@ -160,7 +160,7 @@ By organizing the application into these distinct reusable components, we promot
 - [Google Fonts](https://fonts.google.com/) - A library of 1482 open source font families and APIs for convenient use via CSS
 
 ## NPM Packages / Dependencies
-
+- [react-notifications](https://www.npmjs.com/package/react-notifications)I have implemented a package called react-notifications to provide notifications for user actions. It allows me to display success and error notifications. 
 - [axios](https://www.npmjs.com/package/axios) - HTTP client for making network requests.
 - [jwt-decode](https://jwt.io/) - Library for decoding JWT tokens.
 - [react-bootstrap](https://react-bootstrap.github.io/) - React components for using Bootstrap with React.
@@ -183,7 +183,16 @@ By organizing the application into these distinct reusable components, we promot
 
 # Testing
 
-## All Pages (Nav Bar):
+## Manual Testing:
+
+I have performed comprehensive responsive testing on all pages of the application across a diverse range of devices. The devices I have specifically tested include:
+- iPhone SE
+- iPhone XR
+- iPhone 12 Pro
+- Pixel 5
+- Samsung Galaxy S8
+
+### All Pages (Nav Bar):
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
 Home page | When the "home" button in the navigation bar is clicked, the browser redirects the user to the home page and the "active" styling appears on the home button | PASS
@@ -195,14 +204,14 @@ Sign in |  When the "Sign in" button in the navigation bar is clicked, the brows
 Foreground & background colour | Checked foreground information is not distracted by background color or images | PASS
 Text | Checked that all fonts and colours used are consistent. | PASS
 
-## Home
+### Home
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
 Responsiveness | All elements on the page have been checked to ensure consistent scalability across mobile, tablet, and desktop views..| PASS
 Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
 Links | All links are functional and take the user to the correct pages. | PASS
 
-## Workouts page
+### Workouts page
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
 Workout unit | When a workout unit is clicked, it's information is displayed. | PASS
@@ -211,7 +220,7 @@ Responsiveness | All elements on the page have been checked to ensure consistent
 Accessibility |The accessibility of the page has been checked using Lighthouse.| PASS
 Links | All links are functional and take the user to the correct pages. | PASS
 
-## Individual workout page
+### Individual workout page
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
 Sets | All sets that belong to the workout display | PASS
