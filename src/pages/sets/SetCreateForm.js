@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { Button, Alert, Modal } from "react-bootstrap";
-import styles from '../../styles/SetCreateForm.module.css'
+import styles from "../../styles/SetCreateForm.module.css";
 import { NotificationManager } from "react-notifications";
 
 function SetCreateForm(props) {
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   const [show, setShow] = useState(false);
   const { workout, setWorkout, setSets, profile_id } = props;
   const [setData, setSetData] = useState({
@@ -24,7 +25,7 @@ function SetCreateForm(props) {
         const response = await axiosReq.get("/exercises/", {
           params: {
             owner: profile_id
-          },
+          }
         });
         setExercises(response.data.results);
       } catch (error) {
@@ -33,7 +34,7 @@ function SetCreateForm(props) {
     };
 
     fetchExercises();
-  }, []);
+  }, [profile_id]);
 
   const handleChange = (event) => {
     setSetData({
@@ -46,11 +47,11 @@ function SetCreateForm(props) {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/sets/", {
-        exercise: exercise, // Send exercise ID 
+        exercise: exercise, // Send exercise ID
         reps,
         value_of_unit_1,
         value_of_unit_2,
-        workout: workout // Send workout ID 
+        workout: workout // Send workout ID
       });
       setSets((prevSets) => ({
         ...prevSets,
@@ -88,7 +89,13 @@ function SetCreateForm(props) {
 
   return (
     <>
-      <Button className={styles.Buttons} variant="secondary" onClick={handleShow}><i className="fa-solid fa-plus"></i></Button>
+      <Button
+        className={styles.Buttons}
+        variant="secondary"
+        onClick={handleShow}
+      >
+        <i className="fa-solid fa-plus"></i>
+      </Button>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className={styles.ModalFooterHeader} closeButton>
           <Modal.Title>Create a set</Modal.Title>
@@ -106,7 +113,8 @@ function SetCreateForm(props) {
                 <option value="">Select Exercise</option>
                 {exercises && exercises.length > 0 ? (
                   exercises.map((exercise) => (
-                    <option key={exercise.id} value={exercise.id}> {/* Use exercise ID as option value */}
+                    <option key={exercise.id} value={exercise.id}>
+                      {/* Use exercise ID as option value */}
                       {exercise.name}
                     </option>
                   ))
@@ -123,7 +131,7 @@ function SetCreateForm(props) {
               </Alert>
             ))}
             <Form.Group controlId="reps">
-              <Form.Label className='d-none'>Reps</Form.Label>
+              <Form.Label className="d-none">Reps</Form.Label>
               <Form.Control
                 type="text"
                 className="mt-4"
@@ -132,7 +140,7 @@ function SetCreateForm(props) {
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices
-                placeholder='Reps'
+                placeholder="Reps"
               />
             </Form.Group>
             {errors.reps?.map((message, idx) => (
@@ -141,7 +149,7 @@ function SetCreateForm(props) {
               </Alert>
             ))}
             <Form.Group controlId="value_of_unit_1">
-              <Form.Label className='d-none'>Value of unit 1</Form.Label>
+              <Form.Label className="d-none">Value of unit 1</Form.Label>
               <Form.Control
                 type="text"
                 className="mt-4"
@@ -150,7 +158,7 @@ function SetCreateForm(props) {
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices
-                placeholder='Value of unit 1'
+                placeholder="Value of unit 1"
               />
             </Form.Group>
             {errors.value_of_unit_1?.map((message, idx) => (
@@ -159,7 +167,7 @@ function SetCreateForm(props) {
               </Alert>
             ))}
             <Form.Group controlId="value_of_unit_2">
-              <Form.Label className='d-none'>Value of unit 2</Form.Label>
+              <Form.Label className="d-none">Value of unit 2</Form.Label>
               <Form.Control
                 type="text"
                 className="mt-4"
@@ -168,7 +176,7 @@ function SetCreateForm(props) {
                 onChange={handleChange}
                 pattern="[0-9]*" // Restrict input to only digits
                 inputMode="numeric" // Show numeric keyboard on mobile devices
-                placeholder='Value of unit 2'
+                placeholder="Value of unit 2"
               />
             </Form.Group>
             {errors.value_of_unit_2?.map((message, idx) => (
@@ -187,5 +195,12 @@ function SetCreateForm(props) {
     </>
   );
 }
+
+SetCreateForm.propTypes = {
+  workout: PropTypes.object.isRequired, // Prop for workout object
+  setWorkout: PropTypes.func.isRequired, // Prop for setWorkout function
+  setSets: PropTypes.func.isRequired, // Prop for setSets function
+  profile_id: PropTypes.number.isRequired // Prop for profile ID
+};
 
 export default SetCreateForm;

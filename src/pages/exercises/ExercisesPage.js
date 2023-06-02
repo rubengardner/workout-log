@@ -11,7 +11,6 @@ import styles from '../../styles/ExercisesPage.module.css'
 
 function ExercisesPage() {
   const [exercises, setExercises] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
 
   useEffect(() => {
@@ -23,8 +22,6 @@ function ExercisesPage() {
 
         const userExercises = data.results.filter(exercise => exercise.is_owner === true);
         setExercises(userExercises);
-
-        setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }

@@ -8,7 +8,6 @@ import styles from '../../styles/WorkoutCreateForm.module.css'
 import { NotificationManager } from 'react-notifications';
 
 const WorkoutCreateForm = () => {
-  const [errors, setErrors] = useState({})
   const history = useHistory();
   const [startDate, setStartDate] = useState(new Date());
 
@@ -28,10 +27,6 @@ const WorkoutCreateForm = () => {
       NotificationManager.success("You successfully created a workout", "Success!");
     } catch (err) {
       NotificationManager.error("Something went wrong", "Error!");
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
-    }
   };
 
 

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
 import styles from '../../styles/ExerciseCreateForm.module.css'
 import { useHistory } from "react-router";
@@ -32,7 +32,7 @@ const ExerciseCreateForm = () => {
     formData.append("unit_2", unit_2);
     console.log(formData)
     try {
-      const { data } = await axiosReq.post("/exercises/", formData);
+      await axiosReq.post("/exercises/", formData);
       history.push(`/exercises/`);
       NotificationManager.success("You successfully created an exercise", "Success!");
     } catch (err) {

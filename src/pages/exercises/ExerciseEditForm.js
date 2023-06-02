@@ -50,7 +50,9 @@ const ExerciseEditForm = () => {
       await axiosRes.delete(`/exercises/${id}`);
       history.push(`/exercises`);
       NotificationManager.warning("You deleted an excercise", "Warning!");
-    } catch (err) { }
+    } catch (err) { 
+      console.log(err)
+    }
   };
 
   const handleSubmit = async (event) => {
