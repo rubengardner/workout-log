@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { axiosRes } from "../api/axiosDefaults";
 import styles from '../styles/Set.module.css';
@@ -8,7 +7,6 @@ import styles from '../styles/Set.module.css';
 const Set = (props) => {
   const {
     exercise_name,
-    owner,
     reps,
     value_of_unit_1,
     value_of_unit_2,
@@ -18,8 +16,6 @@ const Set = (props) => {
     exercise_unit_1,
     exercise_unit_2
   } = props;
-
-  const currentUser = useCurrentUser();
 
   const handleDelete = async () => {
     try {
