@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
 import { useHistory } from "react-router";
+import PropTypes from 'prop-types';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -76,3 +77,9 @@ export const CurrentUserProvider = ({ children }) => {
     </CurrentUserContext.Provider>
   );
 };
+
+CurrentUserProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default CurrentUserProvider;
