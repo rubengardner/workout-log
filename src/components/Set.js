@@ -1,8 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useCurrentUser } from "../contexts/CurrentUserContext";
 import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
 import { axiosRes } from "../api/axiosDefaults";
-import styles from '../styles/Set.module.css'
+import styles from '../styles/Set.module.css';
 
 const Set = (props) => {
   const {
@@ -18,9 +19,7 @@ const Set = (props) => {
     exercise_unit_2
   } = props;
 
-
   const currentUser = useCurrentUser();
-  const is_owner = currentUser?.username === owner;
 
   const handleDelete = async () => {
     try {
@@ -38,12 +37,14 @@ const Set = (props) => {
         ...prevSets,
         results: prevSets.results.filter((set) => set.id !== id),
       }));
-    } catch (err) { }
+    } catch (err) {
+      // Handle the error, e.g., display a notification or log the error
+    }
   };
 
   return (
     <Accordion key={id}>
-      <Card >
+      <Card>
         <Card.Header className={styles.CardHeader}>
           <Accordion.Toggle as={Card.Header} variant="link" eventKey="0" className={`${styles.IndividualCard} d-flex justify-content-between align-items-center`}>
             <span> Set: {exercise_name}</span>
@@ -66,6 +67,19 @@ const Set = (props) => {
       </Card>
     </Accordion>
   );
+};
+
+Set.propTypes = {
+  exercise_name: PropTypes.string.isRequired,
+  owner: PropTypes.string.isRequired,
+  reps: PropTypes.string.isRequired,
+  value_of_unit_1: PropTypes.string.isRequired,
+  value_of_unit_2: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  setWorkout: PropTypes.func.isRequired,
+  setSets: PropTypes.func.isRequired,
+  exercise_unit_1: PropTypes.string.isRequired,
+  exercise_unit_2: PropTypes.string,
 };
 
 export default Set;
