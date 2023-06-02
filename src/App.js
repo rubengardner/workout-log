@@ -1,7 +1,8 @@
+import React from "react";
 import styles from './App.module.css';
 import NavBar from './components/NavBar';
 import { Container } from 'react-bootstrap';
-import { Route, Switch, useParams} from 'react-router-dom/cjs/react-router-dom.min';
+import { Route, Switch} from 'react-router-dom/cjs/react-router-dom.min';
 import './api/axiosDefaults';
 import SignUpForm from './pages/auth/SignUpForm';
 import './api/axiosDefaults'
@@ -10,7 +11,6 @@ import { createContext } from 'react';
 import ExerciseCreateForm from './pages/exercises/ExerciseCreateForm';
 import WorkoutPage from './pages/workouts/WorkoutPage';
 import WorkoutCreateForm from './pages/workouts/WorkoutCreateForm';
-import { useCurrentUser } from './contexts/CurrentUserContext';
 import WorkoutsPage from './pages/workouts/WorkoutsPage';
 import WorkoutEditForm from './pages/workouts/WorkoutEditForm';
 import ExerciseEditForm from './pages/exercises/ExerciseEditForm';
@@ -23,8 +23,6 @@ export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
 function App() {
-  const currentUser = useCurrentUser;
-  const profile_id = currentUser?.profile_id || '';
   return (
 
     <div className={styles.App}>

@@ -4,12 +4,12 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Exercise from "../../components/Exercise";
 import { axiosReq } from "../../api/axiosDefaults";
-import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
+import { Accordion, Button, Card } from "react-bootstrap";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/ExercisesPage.module.css'
 
 
-function ExercisesPage({ message, filter = "" }) {
+function ExercisesPage() {
   const [exercises, setExercises] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
