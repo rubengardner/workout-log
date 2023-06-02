@@ -78,7 +78,7 @@ function SignInForm() {
             <Col>
               <Container className='mt-4'>
                 <div>
-                  Don't have an account? <Link to="/signup">Sign up</Link>
+                Are you without an account? <Link to='/signup'>Sign up</Link>
                 </div>
               </Container>
             </Col>
