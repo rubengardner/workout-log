@@ -5,6 +5,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import styles from '../../styles/WorkoutCreateForm.module.css'
+import { NotificationManager } from 'react-notifications';
 
 const WorkoutCreateForm = () => {
   const [errors, setErrors] = useState({})
@@ -24,8 +25,9 @@ const WorkoutCreateForm = () => {
       const { data } = await axiosReq.post("/workouts/", formData);
       console.log(data);
       history.push(`/workouts/${data.id}`);
+      NotificationManager.success("You successfully created a workout", "Success!");
     } catch (err) {
-      console.log(err);
+      NotificationManager.error("Something went wrong", "Error!");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

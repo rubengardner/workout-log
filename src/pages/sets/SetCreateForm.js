@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import { axiosRes, axiosReq } from "../../api/axiosDefaults";
 import { Button, Alert, Modal } from "react-bootstrap";
 import styles from '../../styles/SetCreateForm.module.css'
+import { NotificationManager } from "react-notifications";
 
 function SetCreateForm(props) {
   const [errors, setErrors] = useState({})
@@ -71,6 +72,7 @@ function SetCreateForm(props) {
       });
       handleClose(); // Close the modal after successful submission
       setErrors({});
+      NotificationManager.success("You successfully created a set", "Success!");
     } catch (err) {
       setErrors(err.response?.data);
     }

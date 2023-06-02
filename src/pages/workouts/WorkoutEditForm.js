@@ -6,6 +6,7 @@ import { useHistory } from "react-router";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../../styles/WorkoutEditForm.module.css'
+import { NotificationManager } from 'react-notifications';
 
 const WorkoutEditForm = () => {
   const [errors, setErrors] = useState({})
@@ -57,8 +58,9 @@ const WorkoutEditForm = () => {
     try {
       await axiosReq.put(`/workouts/${id}`, formData);
       history.push(`/workouts/${id}`);
+      NotificationManager.success("You successfully updated a workout", "Success!");
     } catch (err) {
-      console.log(err);
+      NotificationManager.error("Something went wrong", "Error!");
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -69,8 +71,9 @@ const WorkoutEditForm = () => {
     try {
       await axiosRes.delete(`/workouts/${id}`);
       history.push(`/workouts`);
+      NotificationManager.warning("You deleted a workout", "Warning!");
     } catch (err) {
-      console.log(err);
+      NotificationManager.error("Something went wrong", "Error!");
     }
   };
 
