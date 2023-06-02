@@ -4,6 +4,8 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from '../../styles/SignUpForm.module.css'
 import { useSetCurrentUser } from "../../contexts/CurrentUserContext";
+import { NotificationManager } from "react-notifications";
+
 
 function SignInForm() {
   const setCurrentUser = useSetCurrentUser();
@@ -29,8 +31,10 @@ function SignInForm() {
       const { data } = await axios.post("/dj-rest-auth/login/", logInData);
       setCurrentUser(data.user);
       history.push("/");
+      NotificationManager.success("You login successfully", "Success!");
     } catch (err) {
       setErrors(err.response?.data);
+      NotificationManager.error("Something went wrong", "Error!")
     }
   };
 

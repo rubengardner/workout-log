@@ -3,6 +3,7 @@ import { Form, Button, Row, Col, Container, Alert, Card } from 'react-bootstrap'
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import styles from '../../styles/SignUpForm.module.css'
+import { NotificationManager } from 'react-notifications';
 
 const SignUpForm = () => {
   const [signUpData, setSignUpData] = useState({
@@ -27,8 +28,10 @@ const SignUpForm = () => {
     try {
       await axios.post("/dj-rest-auth/registration/", signUpData);
       history.push("/signin");
+      NotificationManager.success("You successfully created an account", "Success!");
     } catch (err) {
       setErrors(err.response?.data);
+      NotificationManager.error("Something went wrong", "Error!")
     }
   };
 

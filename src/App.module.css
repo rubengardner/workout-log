@@ -7,11 +7,19 @@ body {
     flex-direction: column;
 }
 
-
 .App {
-    min-height: 100vh;
+    max-height: 100vh;
+    position: relative;
 }
 
 .Main {
     padding-top: 100px;
 }
+
+.notificationContainer {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+  }
