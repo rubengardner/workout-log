@@ -5,7 +5,6 @@ import styles from '../styles/NavBar.module.css'
 import { useCurrentUser, useSetCurrentUser } from "../contexts/CurrentUserContext";
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-import { NotificationManager } from "react-notifications";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
@@ -17,9 +16,8 @@ const NavBar = () => {
     try {
       await axios.post("dj-rest-auth/logout/");
       setCurrentUser(null);
-      NotificationManager.success("You log out succesfully", "Success!");
     } catch (err) {
-      NotificationManager.error("Something went wrong", "Error!");
+      console.log(err);
     }
   };
   const logOutDisplay = (<>
