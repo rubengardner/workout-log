@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Form from "react-bootstrap/Form";
-import { axiosRes, axiosReq } from "../../api/axiosDefaults";
+import { axiosRes } from "../../api/axiosDefaults";
 import { Button, Alert, Modal } from "react-bootstrap";
 import styles from "../../styles/SetCreateForm.module.css";
 import { NotificationManager } from "react-notifications";
+import axios from "axios";
 
 function SetCreateForm(props) {
   const [errors, setErrors] = useState({});
@@ -22,14 +23,14 @@ function SetCreateForm(props) {
   useEffect(() => {
     const fetchExercises = async () => {
       try {
-        const response = await axiosReq.get("/exercises/", {
+        const response = await axios.get('/exercises/', {
           params: {
-            owner: profile_id
+            profile_id: profile_id
           }
         });
         setExercises(response.data.results);
       } catch (error) {
-        // Do nothing
+        // Handle error
       }
     };
 

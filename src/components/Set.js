@@ -14,7 +14,7 @@ const Set = (props) => {
     setWorkout,
     setSets,
     exercise_unit_1,
-    exercise_unit_2
+    exercise_unit_2,
   } = props;
 
   const handleDelete = async () => {

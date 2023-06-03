@@ -30,6 +30,9 @@ function WorkoutPage() {
     handleMount();
   }, [id]);
 
+  // Filter sets based on the workout_id
+  const filteredSets = sets.results.filter(set => set.workout === Number(id));
+
   return (
     <div>
       <Container>
@@ -49,11 +52,12 @@ function WorkoutPage() {
                     setSets={setSets}
                     profile_id={currentUser.profile_id}
                   />
+                  {console.log('This is the ', currentUser.profile_id)}
                   </>
                 ) : null}
-                {sets.results.length ? <p className='mt-4'>Sets:</p> : null}
-                {sets.results.length ? (
-                  sets.results.map((set) => (
+                {filteredSets.length ? <p className='mt-4'>Sets:</p> : null}
+                {filteredSets.length ? (
+                  filteredSets.map((set) => (
                     <Set
                       key={set.id}
                       {...set}
