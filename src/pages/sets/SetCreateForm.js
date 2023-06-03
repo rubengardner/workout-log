@@ -29,7 +29,7 @@ function SetCreateForm(props) {
         });
         setExercises(response.data.results);
       } catch (error) {
-        console.log(error);
+        // Do nothing
       }
     };
 

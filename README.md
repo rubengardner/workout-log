@@ -160,8 +160,9 @@ By organizing the application into these distinct reusable components, we promot
 - [Google Fonts](https://fonts.google.com/) - A library of 1482 open source font families and APIs for convenient use via CSS
 
 ## NPM Packages / Dependencies
-- [react-notifications](https://www.npmjs.com/package/react-notifications)I have implemented a package called react-notifications to provide notifications for user actions. It allows me to display success and error notifications. 
-- [axios](https://www.npmjs.com/package/axios) - HTTP client for making network requests.
+- [PropTypes](https://www.npmjs.com/package/prop-types): PropTypes is a package used for defining the types of props passed to React components. It provides a way to specify the expected data types and shapes of props, helping to ensure the correctness and consistency of data flowing through the application.
+- [react-notifications](https://www.npmjs.com/package/react-notifications)A package used for implementing notifications in React. It provides functionality to display success and error notifications for user actions.
+- [axios](https://www.npmjs.com/package/axios) - An HTTP client library for making network requests from a React application. It simplifies the process of sending HTTP requests and handling responses.
 - [jwt-decode](https://jwt.io/) - Library for decoding JWT tokens.
 - [react-bootstrap](https://react-bootstrap.github.io/) - React components for using Bootstrap with React.
 - [react-dom](https://reactjs.org/docs/react-dom.html) - React library for rendering components on the DOM
@@ -171,15 +172,14 @@ By organizing the application into these distinct reusable components, we promot
 
 ## Other Tools
 
-- [a11y](https://color.a11y.com/Contrast/) - Used to test the contrast and accessibility.
-- [GitPod](https://code.visualstudio.com/) - Used to create and edit the website.
+- [WebAIM](https://webaim.org/resources/contrastchecker/) - Used to test the contrast and accessibility.
+- [GitPod](https://gitpod.io/) - Used to create and edit the website.
 - [GitHub](https://github.com/) - Used to host and deploy the website as well as manage the project.
-- [GitBash](<https://en.wikipedia.org/wiki/Bash_(Unix_shell)>) - Terminal used to push changes to the GitHub repository.
 - [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to test responsiveness and debug.
 - [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used to test responsiveness.
 - [Figma](https://www.figma.com/) - Used to create mock-up designs.
 - [Heroku](https://dashboard.heroku.com) - Used to deploy the website
-- [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+- [ESLint Validation](https://eslint.org/docs/latest/use/getting-started) - Used to validate JavaScript code
 
 # Testing
 
@@ -253,15 +253,27 @@ TEST            | OUTCOME                          | PASS / FAIL
 Forms | Forms are populated with the correct data | PASS
 
 # Deployemnt
-Create new Heroku app
-    - Sign into Heroku
-    - Select New
-    - Select create new app
-    - Enter a relevant app name
-    - Select appropriate region
-    - Select the create app button
-    - Commit and push all files to GitHub
-    - In the deploy tab, go to the manual deploy sections and click deploy branch.
+To create a new Heroku app, you can follow these steps:
+
+- Sign into Heroku: Go to the Heroku website and sign in to your account.
+
+- Select New: Once you're logged in, navigate to your dashboard or the Heroku dashboard homepage.
+
+- Select Create New App: Look for the "New" button or link, usually located in the top right corner of the dashboard. Click on it to create a new app.
+
+- Enter a relevant app name: In the app creation form, provide a name for your app. Choose a name that is descriptive and relevant to the project you're working on.
+
+- Select the appropriate region: Heroku provides several regions where you can deploy your app. Choose the region that is closest to your target audience or where you prefer your app to be hosted.
+
+- Click the Create App button: Once you have filled in the necessary information, click the "Create App" button to create your new Heroku app.
+
+- Commit and push all files to GitHub: Ensure that all the files related to your project are committed and pushed to your GitHub repository. This step ensures that the latest code changes are available for deployment.
+
+- Deploy to Heroku: In your Heroku app dashboard, navigate to the "Deploy" tab.
+
+- Manual deploy: Scroll down to the "Manual deploy" section, where you'll find options to deploy your app from different branches. Select the branch you want to deploy.
+
+- Click the "Deploy Branch" button: Once you have chosen the branch, click on the "Deploy Branch" button. Heroku will start the deployment process and build your app using the provided code from the selected branch.
 
 # Credits
 

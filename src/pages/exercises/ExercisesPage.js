@@ -23,7 +23,7 @@ function ExercisesPage() {
         const userExercises = data.results.filter(exercise => exercise.is_owner === true);
         setExercises(userExercises);
       } catch (err) {
-        console.log(err);
+        // Do nothing
       }
     };
 

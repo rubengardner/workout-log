@@ -36,7 +36,7 @@ const WorkoutEditForm = () => {
           console.error("Invalid date:", date);
         }
       } catch (err) {
-        console.log(err)
+        // Do nothing
       }
     };
 

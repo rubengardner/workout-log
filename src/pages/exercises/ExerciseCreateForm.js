@@ -30,7 +30,7 @@ const ExerciseCreateForm = () => {
     formData.append("name", exerciseName);
     formData.append("unit_1", unit_1);
     formData.append("unit_2", unit_2);
-    console.log(formData)
+  
     try {
       await axiosReq.post("/exercises/", formData);
       history.push(`/exercises/`);

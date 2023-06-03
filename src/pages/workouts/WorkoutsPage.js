@@ -23,7 +23,7 @@ function WorkoutsPage() {
         setWorkouts(userWorkouts);
 
       } catch (err) {
-        console.log(err);
+        // Do nothing
       }
     };
 

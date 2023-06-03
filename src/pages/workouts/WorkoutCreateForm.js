@@ -22,7 +22,6 @@ const WorkoutCreateForm = () => {
     }
     try {
       const { data } = await axiosReq.post("/workouts/", formData);
-      console.log(data);
       history.push(`/workouts/${data.id}`);
       NotificationManager.success("You successfully created a workout", "Success!");
     } catch (err) {

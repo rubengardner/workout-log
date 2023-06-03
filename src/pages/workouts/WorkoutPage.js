@@ -24,7 +24,7 @@ function WorkoutPage() {
         setWorkout({ results: [workout] });
         setSets(sets);
       } catch (err) {
-        console.log(err);
+       // Do nothing
       }
     };
     handleMount();

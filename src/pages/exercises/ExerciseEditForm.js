@@ -28,10 +28,9 @@ const ExerciseEditForm = () => {
       try {
         const { data } = await axiosReq.get(`/exercises/${id}`);
         const { name, unit_1, unit_2, is_owner } = data;
-        console.log(data)
         is_owner ? setExerciseData({ name, unit_1, unit_2 }) : history.push("/");
       } catch (err) {
-        console.log(err);
+        // Do nothing
       }
     };
 
@@ -51,7 +50,7 @@ const ExerciseEditForm = () => {
       history.push(`/exercises`);
       NotificationManager.warning("You deleted an excercise", "Warning!");
     } catch (err) { 
-      console.log(err)
+      // Do nothing
     }
   };
 
