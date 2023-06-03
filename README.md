@@ -2,13 +2,13 @@
 
 Welcome to our innovative workout app! Designed to empower users in their fitness journey, our app provides a dynamic platform for creating custom exercises and tracking personal progress. With our user-friendly interface and comprehensive features, achieving your fitness goals has never been easier. Whether you're a beginner or a seasoned fitness enthusiast, our app offers a seamless experience for creating and managing your workout routines. From designing exercises tailored to your specific needs to monitoring your progress over time, our app is your ultimate fitness companion. Get ready to take charge of your workouts and witness remarkable transformations as you embark on your fitness adventure with our state-of-the-art workout app.
 
-You can view the live site here - <a href="" target="_blank" rel="noopener">Workout Log/a>
+You can view the live site here - <a href="https://workout-log-front-end.herokuapp.com/" target="_blank" rel="noopener">Workout Log</a>
 
-You can view the live API here - <a href="" target="_blank" rel="noopener">Workout Log DRF API</a>
+You can view the live API here - <a href="https://workout-log-api.herokuapp.com/" target="_blank" rel="noopener">Workout Log DRF API</a>
 
 You can view the back-end README.md here - <a href="" target="_blank" rel="noopener">Workout Log Back-End README</a>
 
-![Workout Log responsive design](/src/assets/readme_images/responsive-preview.png)
+![Workout Log responsive design](/media/amiresponsive.png)
 
 # Table of Contents
 
