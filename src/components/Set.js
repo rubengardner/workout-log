@@ -51,7 +51,7 @@ const Set = (props) => {
         <Accordion.Collapse eventKey='0'>
           <Card.Body className={styles.CardBody}>
             <p>Reps: {reps}</p>
-            <p>Unit: {value_of_unit_1} {exercise_unit_1}</p>
+            <p>{value_of_unit_1} {exercise_unit_1}</p>
             {exercise_unit_2 && (
               <p>{value_of_unit_2} {exercise_unit_2}</p>
             )}
