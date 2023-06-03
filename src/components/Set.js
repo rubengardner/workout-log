@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Accordion, Button, ButtonGroup, Card } from "react-bootstrap";
+import { Accordion, Button, Card } from "react-bootstrap";
 import { axiosRes } from "../api/axiosDefaults";
 import styles from '../styles/Set.module.css';
 
@@ -55,10 +55,7 @@ const Set = (props) => {
             {exercise_unit_2 && (
               <p>{value_of_unit_2} {exercise_unit_2}</p>
             )}
-            <ButtonGroup>
-              <Button className={styles.Buttons} variant="secondary" href={`/workouts/${id}/edit`}><i className="fa-solid fa-pen-to-square"></i></Button>
               <Button className={styles.DeleteButton} variant="secondary" onClick={handleDelete}><i className="fa-solid fa-xmark"></i></Button>
-            </ButtonGroup>
           </Card.Body>
         </Accordion.Collapse>
       </Card>

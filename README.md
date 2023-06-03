@@ -275,6 +275,26 @@ To create a new Heroku app, you can follow these steps:
 
 - Click the "Deploy Branch" button: Once you have chosen the branch, click on the "Deploy Branch" button. Heroku will start the deployment process and build your app using the provided code from the selected branch.
 
+# Known bugs
+
+There are two known bugs in the set creation feature that need to be addressed:
+
+Incorrect exercise selection in the dropdown: Currently, the dropdown allows the selection of all exercises, regardless of whether they belong to the user or not. The intended behavior is to only permit the selection of exercises that belong to the user. This bug needs to be fixed so that only the user's exercises are available for selection in the dropdown.
+
+Mandatory entry for unit 2: Presently, when creating a set, the value for unit 2 is required to be filled, even if the exercise does not have a second unit. This is an issue because some exercises may not have a second unit. The bug needs to be addressed by allowing the unit 2 field to be optional when it is not applicable to the exercise.
+
+To resolve the first bug, the following steps can be taken:
+
+Retrieve the list of exercises belonging to the user.
+Update the dropdown menu to populate only with the exercises from the user's list.
+Ensure that the selection mechanism filters out any exercises that are not owned by the user.
+To address the second bug, the following approach can be adopted:
+
+Modify the set creation form to include a checkbox or toggle indicating whether the exercise has a second unit.
+When the checkbox is selected or toggled to indicate the presence of a second unit, the unit 2 field should be made mandatory.
+When the checkbox is deselected or toggled to indicate the absence of a second unit, the unit 2 field should become optional, allowing the user to leave it blank.
+By implementing these fixes, users will only be able to select their own exercises from the dropdown, and they will have the flexibility to enter a value for unit 2 only when it is applicable to the exercise being added to the set. These updates will enhance the user experience and improve the accuracy of the set creation process.
+
 # Credits
 
 ## Content
@@ -286,13 +306,3 @@ The files which have been created and used for the League Hub project that have 
 - CurrentUserContext.js
 - useRedirect.js
 - axiosDefault.js
-
-Additional files that I have drawn inspiration from and modified to meet the League Hubs needs were the following
-
-- SignIn.js
-- SignUp.js
-- Comment.js
-- CommentCreate.js
-- CommentEdit.js
-- Asset.js
-- utils.js
