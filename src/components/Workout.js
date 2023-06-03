@@ -24,9 +24,9 @@ const Workout = (props) => {
 };
 
 Workout.propTypes = {
-  sets_count: PropTypes.number.isRequired,
-  exercise_count: PropTypes.number.isRequired,
-  date: PropTypes.string.isRequired,
+  sets_count: PropTypes.number,
+  exercise_count: PropTypes.number,
+  date: PropTypes.string,
 };
 
 export default Workout;

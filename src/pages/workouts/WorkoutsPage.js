@@ -6,9 +6,8 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/WorkoutsPage.module.css'
 
 
-function WorkoutsPage({ message, filter = "" }) {
+function WorkoutsPage() {
   const [workouts, setWorkouts] = useState({ results: [] });
-  const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
 
   // Fetches workouts from the server and updates the state
@@ -23,7 +22,6 @@ function WorkoutsPage({ message, filter = "" }) {
         const userWorkouts = data.results.filter(workout => workout.is_owner === true);
         setWorkouts(userWorkouts);
 
-        setHasLoaded(true);
       } catch (err) {
         console.log(err);
       }

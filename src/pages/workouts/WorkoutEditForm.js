@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Form, Button, Row, Col, Container, Alert, Card, Modal } from 'react-bootstrap'
+import { Form, Button, Row, Col, Container, Card, Modal } from 'react-bootstrap'
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useHistory } from "react-router";
@@ -60,9 +60,6 @@ const WorkoutEditForm = () => {
       NotificationManager.success("You successfully updated a workout", "Success!");
     } catch (err) {
       NotificationManager.error("Something went wrong", "Error!");
-      if (err.response?.status !== 401) {
-        setErrors(err.response?.data);
-      }
     }
   };
 

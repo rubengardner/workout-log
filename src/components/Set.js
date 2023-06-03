@@ -25,6 +25,7 @@ const Set = (props) => {
           {
             ...prevWorkout.results[0],
             sets_count: prevWorkout.results[0].sets_count - 1,
+            exercise_count: prevWorkout.results[0].exercise_count - 1,
           },
         ],
       }));
@@ -68,10 +69,10 @@ const Set = (props) => {
 Set.propTypes = {
   exercise_name: PropTypes.string.isRequired,
   owner: PropTypes.string.isRequired,
-  reps: PropTypes.string.isRequired,
-  value_of_unit_1: PropTypes.string.isRequired,
-  value_of_unit_2: PropTypes.string,
-  id: PropTypes.string.isRequired,
+  reps: PropTypes.number.isRequired,
+  value_of_unit_1: PropTypes.number.isRequired,
+  value_of_unit_2: PropTypes.number,
+  id: PropTypes.number.isRequired,
   setWorkout: PropTypes.func.isRequired,
   setSets: PropTypes.func.isRequired,
   exercise_unit_1: PropTypes.string.isRequired,

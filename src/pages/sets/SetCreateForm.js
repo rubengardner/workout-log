@@ -61,7 +61,8 @@ function SetCreateForm(props) {
         results: [
           {
             ...prevWorkout.results[0],
-            sets_count: prevWorkout.results[0].sets_count + 1
+            sets_count: prevWorkout.results[0].sets_count + 1,
+            exercise_count: prevWorkout.results[0].exercise_count + 1
           }
         ]
       }));
@@ -197,7 +198,7 @@ function SetCreateForm(props) {
 }
 
 SetCreateForm.propTypes = {
-  workout: PropTypes.object.isRequired, // Prop for workout object
+  workout: PropTypes.string.isRequired, // Prop for workout object
   setWorkout: PropTypes.func.isRequired, // Prop for setWorkout function
   setSets: PropTypes.func.isRequired, // Prop for setSets function
   profile_id: PropTypes.number.isRequired // Prop for profile ID
