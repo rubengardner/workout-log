@@ -6,7 +6,7 @@ You can view the live site here - <a href="https://workout-log-front-end.herokua
 
 You can view the live API here - <a href="https://workout-log-api.herokuapp.com/" target="_blank" rel="noopener">Workout Log DRF API</a>
 
-You can view the back-end README.md here - <a href="" target="_blank" rel="noopener">Workout Log Back-End README</a>
+You can view the back-end README.md here - <a href="https://github.com/rubengardner/api-workout-log" target="_blank" rel="noopener">Workout Log Back-End README</a>
 
 ![Workout Log responsive design](/media/amiresponsive.png)
 
@@ -77,15 +77,11 @@ Backlog 3:
 ### Scope
 The strategy table indicates that not all features can be immediately implemented in the initial release of the project. As a result, the project will be broken down into multiple phases. The initial phase will focus on incorporating the essential features necessary to create the minimum viable product.
 
-
-
 Phase 1, MVP:
 * CRUD functionality for Exercise, Workout and Sets
 * Provide the option for users to create an account
 * Design that adapts to different screen sizes
 
-Phase 2:
- *
 
 # Wireframes
 
@@ -283,17 +279,21 @@ Incorrect exercise selection in the dropdown: Currently, the dropdown allows the
 
 Mandatory entry for unit 2: Presently, when creating a set, the value for unit 2 is required to be filled, even if the exercise does not have a second unit. This is an issue because some exercises may not have a second unit. The bug needs to be addressed by allowing the unit 2 field to be optional when it is not applicable to the exercise.
 
+There is a known bug in the workout editing feature that affects the date field. When attempting to edit the date of a workout, the system returns a date that is one day earlier than the selected date. This issue needs to be addressed as it is causing incorrect dates to be saved in the system.
+
 To resolve the first bug, the following steps can be taken:
 
-Retrieve the list of exercises belonging to the user.
-Update the dropdown menu to populate only with the exercises from the user's list.
-Ensure that the selection mechanism filters out any exercises that are not owned by the user.
-To address the second bug, the following approach can be adopted:
+- Retrieve the list of exercises belonging to the user.
+- Update the dropdown menu to populate only with the exercises from the user's list.
+-Ensure that the selection mechanism filters out any exercises that are not owned by the user.
 
-Modify the set creation form to include a checkbox or toggle indicating whether the exercise has a second unit.
-When the checkbox is selected or toggled to indicate the presence of a second unit, the unit 2 field should be made mandatory.
-When the checkbox is deselected or toggled to indicate the absence of a second unit, the unit 2 field should become optional, allowing the user to leave it blank.
-By implementing these fixes, users will only be able to select their own exercises from the dropdown, and they will have the flexibility to enter a value for unit 2 only when it is applicable to the exercise being added to the set. These updates will enhance the user experience and improve the accuracy of the set creation process.
+To address the second bug, the following approach can be adopted:
+- Modify the set creation form to include a checkbox or toggle indicating whether the exercise has a second unit.
+- When the checkbox is selected or toggled to indicate the presence of a second unit, the unit 2 field should be made mandatory.
+- When the checkbox is deselected or toggled to indicate the absence of a second unit, the unit 2 field should become optional, allowing the user to leave it blank.
+- By implementing these fixes, users will only be able to select their own exercises from the dropdown, and they will have the flexibility to enter a value for unit 2 only when it is applicable to the exercise being added to the set. These updates will enhance the user experience and improve the accuracy of the set creation process.
+
+
 
 # Credits
 
@@ -301,7 +301,7 @@ By implementing these fixes, users will only be able to select their own exercis
 
 This project was inspired by the [Code Institute](https://codeinstitute.net/) walk-through **Moments** project and has been heavily modified
 
-The files which have been created and used for the League Hub project that have been copied from the **Moments** walkthrough project were the following
+The files which have been created and used for the Workout Log project that have been copied from the **Moments** walkthrough project were the following
 
 - CurrentUserContext.js
 - useRedirect.js
