@@ -248,7 +248,7 @@ TEST            | OUTCOME                          | PASS / FAIL
 --------------- | -------------------------------- | ---------------
 Forms | Forms are populated with the correct data | PASS
 
-# Deployemnt
+# Deployment
 To create a new Heroku app, you can follow these steps:
 
 - Sign into Heroku: Go to the Heroku website and sign in to your account.
